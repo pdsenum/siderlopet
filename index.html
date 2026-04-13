@@ -418,6 +418,47 @@
     @media (max-width: 600px) {
       .nav-lenker { display: none; }
     }
+
+    /* ── KART ── */
+    .kart-seksjon {
+      background: var(--krem);
+    }
+
+    .kart-seksjon section {
+      max-width: 1100px;
+      padding: 5rem 2rem;
+    }
+
+    .kart-wrapper {
+      margin-top: 2.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      border: 1px solid var(--krem-mørk);
+    }
+
+    .kart-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 520px;
+      border: none;
+    }
+
+    .kart-lenke {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--tekst-lys);
+      text-decoration: none;
+    }
+
+    .kart-lenke:hover {
+      color: var(--grønn);
+    }
+
+    @media (max-width: 680px) {
+      .kart-wrapper iframe { height: 380px; }
+    }
   </style>
 </head>
 <body>
@@ -428,6 +469,7 @@
     <ul class="nav-lenker">
       <li><a href="#om">Om løpet</a></li>
       <li><a href="#rute">Ruten</a></li>
+      <li><a href="#kart">Kart</a></li>
       <li><a href="#praktisk">Praktisk</a></li>
     </ul>
   </nav>
@@ -439,7 +481,7 @@
     <p class="hero-sub">Løp mellom sidergårder langs Sørfjorden. Smak lokalt håndverk underveis.</p>
     <div class="hero-meta">
       <div class="hero-meta-item">
-        <div class="hero-meta-num">13,6</div>
+        <div class="hero-meta-num">~12</div>
         <div class="hero-meta-label">km</div>
       </div>
       <div class="hero-divider"></div>
@@ -450,7 +492,7 @@
       <div class="hero-divider"></div>
       <div class="hero-meta-item">
         <div class="hero-meta-num">aug</div>
-        <div class="hero-meta-label">2025</div>
+        <div class="hero-meta-label">2026</div>
       </div>
     </div>
     <div class="scroll-hint">Scroll</div>
@@ -469,7 +511,7 @@
         </div>
         <div class="om-tall">
           <div class="om-tall-item">
-            <div class="om-tall-num">~13,6</div>
+            <div class="om-tall-num">~12</div>
             <div class="om-tall-txt">km total løypelengde</div>
           </div>
           <div class="om-tall-item">
@@ -493,9 +535,15 @@
       <p>Ruten følger grusveien Rodabergvegen opp i lia fra Aga, snur ved ca. 200 moh., og følger deretter Fjordavegen (Fv 550) sørover langs fjorden til Fv 109 og Bleievegen.</p>
       <div class="stopp-liste">
         <div class="stopp-kort">
-          <div class="stopp-num">S</div>
+          <div class="stopp-num" style="font-size:0.85rem">Start</div>
+          <div class="stopp-navn">Aga</div>
+          <div class="stopp-info">Startpunkt</div>
+          <div class="stopp-moh"></div>
+        </div>
+        <div class="stopp-kort">
+          <div class="stopp-num">1</div>
           <div class="stopp-navn">Aga Sideri</div>
-          <div class="stopp-info">Start og mål · Aga</div>
+          <div class="stopp-info">Første smak · Aga</div>
           <div class="stopp-moh">agasideri.no</div>
         </div>
         <div class="stopp-kort">
@@ -517,12 +565,37 @@
           <div class="stopp-moh">220 moh · kvestadsideri.no</div>
         </div>
         <div class="stopp-kort">
-          <div class="stopp-num">M</div>
+          <div class="stopp-num">5</div>
           <div class="stopp-navn">Alde Sider</div>
-          <div class="stopp-info">Mål · Bleie Gård · Nå</div>
+          <div class="stopp-info">Bleie Gård · Nå</div>
           <div class="stopp-moh">aldesider.no</div>
         </div>
+        <div class="stopp-kort">
+          <div class="stopp-num" style="font-size:0.85rem">Mål</div>
+          <div class="stopp-navn">Bleie</div>
+          <div class="stopp-info">Endepunkt</div>
+          <div class="stopp-moh"></div>
+        </div>
       </div>
+    </section>
+  </div>
+
+  <!-- KART -->
+  <div class="kart-seksjon" id="kart">
+    <section class="section-wide">
+      <p class="section-label">Interaktivt kart</p>
+      <h2>Se løypen i <em>kartet</em></h2>
+      <p>Klikk på markørene for mer info om hver gård, og utforsk ruten langs vestsiden av Sørfjorden.</p>
+      <div class="kart-wrapper">
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=1zhzgnZqvD78SGGgbU497R3C_JNHpIi4&ehbc=2E312F&noprof=1"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <a class="kart-lenke" href="https://www.google.com/maps/d/viewer?mid=1zhzgnZqvD78SGGgbU497R3C_JNHpIi4" target="_blank" rel="noopener">
+        🗺️ Åpne kartet i Google Maps →
+      </a>
     </section>
   </div>
 
@@ -535,7 +608,7 @@
         <div class="praktisk-kort">
           <div class="praktisk-ikon">📅</div>
           <div class="praktisk-tittel">Når</div>
-          <p class="praktisk-txt">En lørdag i august 2025. Starttid ca. kl. 10:00 fra Aga Sideri.</p>
+          <p class="praktisk-txt">En lørdag i august 2026. Starttid ca. kl. 10:00 fra Aga Sideri.</p>
         </div>
         <div class="praktisk-kort">
           <div class="praktisk-ikon">👟</div>
@@ -553,9 +626,9 @@
           <p class="praktisk-txt">Vi kjøper sider direkte på hver gård underveis. Ta med penger/Vipps.</p>
         </div>
         <div class="praktisk-kort">
-          <div class="praktisk-ikon">🚢</div>
-          <div class="praktisk-tittel">Transport</div>
-          <p class="praktisk-txt">Overnattingssted og reise TBA.</p>
+          <div class="praktisk-ikon">🏨</div>
+          <div class="praktisk-tittel">Losji</div>
+          <p class="praktisk-txt">TBA.</p>
         </div>
         <div class="praktisk-kort">
           <div class="praktisk-ikon">✉️</div>
@@ -570,7 +643,7 @@
   <footer>
     <strong>Siderløpet i Hardanger</strong>
     <div class="ornament">· · ·</div>
-    <p>Vestsiden av Sørfjorden · Ullensvang · August 2025</p>
+    <p>Vestsiden av Sørfjorden · Ullensvang · August 2026</p>
     <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.4">Sider frå Hardanger – beskyttet geografisk betegnelse</p>
   </footer>
 
