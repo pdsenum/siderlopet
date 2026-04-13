@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siderløpet i Hardanger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --grønn:     #2c4a2e;
+      --grønn-lys: #3d6b40;
+      --gull:      #c8a84b;
+      --gull-lys:  #e8c96a;
+      --krem:      #f5f0e8;
+      --krem-mørk: #e8e0d0;
+      --tekst:     #1a2e1b;
+      --tekst-lys: #4a5e4b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--krem);
+      color: var(--tekst);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(to bottom, rgba(20,38,22,0.72) 0%, rgba(20,38,22,0.45) 60%, rgba(20,38,22,0.82) 100%),
+        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gull-lys);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(3rem, 9vw, 7rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gull-lys);
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      margin-top: 1.2rem;
+      max-width: 520px;
+      opacity: 0;
+      animation: fadeUp 1s 0.7s forwards;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s forwards;
+    }
+
+    .hero-meta-item {
+      text-align: center;
+    }
+
+    .hero-meta-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gull-lys);
+      line-height: 1;
+    }
+
+    .hero-meta-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.3rem;
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 50px;
+      background: rgba(255,255,255,0.2);
+      align-self: center;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 1s 1.5s forwards;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.3);
+      animation: scrollPulse 2s infinite;
+    }
+
+    /* ── SEKSJONER ── */
+    section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-wide {
+      max-width: 1100px;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gull);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--grønn);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 em {
+      font-style: italic;
+      color: var(--grønn-lys);
+    }
+
+    p { margin-bottom: 1.2rem; color: var(--tekst-lys); }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── OM ── */
+    .om-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 680px) {
+      .om-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .om-tall {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .om-tall-item {
+      border-left: 2px solid var(--gull);
+      padding-left: 1.5rem;
+    }
+
+    .om-tall-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--grønn);
+      line-height: 1;
+    }
+
+    .om-tall-txt {
+      font-size: 0.9rem;
+      color: var(--tekst-lys);
+      margin-top: 0.2rem;
+    }
+
+    /* ── RUTE ── */
+    .rute-bg {
+      background: var(--grønn);
+      padding: 0;
+    }
+
+    .rute-bg section {
+      max-width: 1100px;
+      padding: 5rem 2rem;
+    }
+
+    .rute-bg .section-label { color: var(--gull-lys); }
+    .rute-bg h2 { color: #fff; }
+    .rute-bg h2 em { color: var(--gull-lys); }
+    .rute-bg p { color: rgba(255,255,255,0.7); }
+
+    .stopp-liste {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .stopp-kort {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 4px;
+      padding: 1.8rem 1.5rem;
+      position: relative;
+      transition: background 0.2s;
+    }
+
+    .stopp-kort:hover {
+      background: rgba(255,255,255,0.11);
+    }
+
+    .stopp-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--gull);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+
+    .stopp-navn {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .stopp-info {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    .stopp-moh {
+      font-size: 0.75rem;
+      color: var(--gull);
+      margin-top: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── STRIPE ── */
+    .stripe {
+      background: var(--krem-mørk);
+      border-top: 1px solid #d8d0c0;
+      border-bottom: 1px solid #d8d0c0;
+    }
+
+    /* ── PRAKTISK ── */
+    .praktisk-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    @media (max-width: 680px) {
+      .praktisk-grid { grid-template-columns: 1fr; }
+    }
+
+    .praktisk-kort {
+      padding: 2rem;
+      background: #fff;
+      border-radius: 4px;
+      border-top: 3px solid var(--gull);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .praktisk-ikon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .praktisk-tittel {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--grønn);
+      margin-bottom: 0.6rem;
+    }
+
+    .praktisk-txt {
+      font-size: 0.9rem;
+      color: var(--tekst-lys);
+      margin: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--tekst);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.85rem;
+    }
+
+    footer strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gull-lys);
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 0.8rem;
+    }
+
+    /* ── DIVIDER ── */
+    .ornament {
+      text-align: center;
+      color: var(--gull);
+      font-size: 1.2rem;
+      letter-spacing: 0.5em;
+      margin: 0.5rem 0;
+      opacity: 0.5;
+    }
+
+    /* ── ANIMASJONER ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50%       { opacity: 0.8; transform: scaleY(1.2); }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(20,38,22,0);
+      transition: background 0.4s, padding 0.4s;
+    }
+
+    nav.scrolled {
+      background: rgba(20,38,22,0.96);
+      padding: 0.8rem 2rem;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #fff;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeUp 1s 0.2s forwards;
+    }
+
+    .nav-lenker {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      opacity: 0;
+      animation: fadeUp 1s 0.2s forwards;
+    }
+
+    .nav-lenker a {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-lenker a:hover { color: var(--gull-lys); }
+
+    @media (max-width: 600px) {
+      .nav-lenker { display: none; }
+    }
+
+    /* ── KART ── */
+    .kart-seksjon {
+      background: var(--krem);
+    }
+
+    .kart-seksjon section {
+      max-width: 1100px;
+      padding: 5rem 2rem;
+    }
+
+    .kart-wrapper {
+      margin-top: 2.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      border: 1px solid var(--krem-mørk);
+    }
+
+    .kart-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 520px;
+      border: none;
+    }
+
+    .kart-lenke {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: var(--tekst-lys);
+      text-decoration: none;
+    }
+
+    .kart-lenke:hover {
+      color: var(--grønn);
+    }
+
+    @media (max-width: 680px) {
+      .kart-wrapper iframe { height: 380px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Siderløpet</a>
+    <ul class="nav-lenker">
+      <li><a href="#om">Om løpet</a></li>
+      <li><a href="#rute">Ruten</a></li>
+      <li><a href="#kart">Kart</a></li>
+      <li><a href="#praktisk">Praktisk</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-eyebrow">Vestsiden av Sørfjorden · Hardanger</p>
+    <h1>Sider<em>løpet</em></h1>
+    <p class="hero-sub">Løp mellom sidergårder langs Sørfjorden. Smak lokalt håndverk underveis.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-num">~12</div>
+        <div class="hero-meta-label">km</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-num">5</div>
+        <div class="hero-meta-label">siderstopp</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-num">aug</div>
+        <div class="hero-meta-label">2026</div>
+      </div>
+    </div>
+    <div class="scroll-hint">Scroll</div>
+  </div>
+
+  <!-- OM LØPET -->
+  <div id="om">
+    <section>
+      <div class="om-grid">
+        <div>
+          <p class="section-label">Om arrangementet</p>
+          <h2>Et løp med <em>pause for smak</em></h2>
+          <p>Siderløpet er et uformelt løp langs vestsiden av Sørfjorden i Hardanger, der vi løper mellom fem av de lokale sidergårdene og tar en smakspause på hvert stopp.</p>
+          <p>Ruten starter på Aga Sideri, går oppover Rodabergvegen og ned til Fv 550, og følger fjordkanten sørover til Alde Sider på Bleie. Underveis passerer vi noen av Norges mest prisbelønte siderproducenter.</p>
+          <p>Løpet er privat og uformelt – det handler mer om Hardanger, sider og gode stunder enn om fart.</p>
+        </div>
+        <div class="om-tall">
+          <div class="om-tall-item">
+            <div class="om-tall-num">~12</div>
+            <div class="om-tall-txt">km total løypelengde</div>
+          </div>
+          <div class="om-tall-item">
+            <div class="om-tall-num">~200</div>
+            <div class="om-tall-txt">meter høyeste punkt (Rodabergvegen)</div>
+          </div>
+          <div class="om-tall-item">
+            <div class="om-tall-num">5</div>
+            <div class="om-tall-txt">sidergårder – én smak på hvert stopp</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- RUTEN -->
+  <div class="rute-bg" id="rute">
+    <section class="section-wide">
+      <p class="section-label">Løypen</p>
+      <h2>Fra Aga til <em>Alde</em></h2>
+      <p>Ruten følger grusveien Rodabergvegen opp i lia fra Aga, snur ved ca. 200 moh., og følger deretter Fjordavegen (Fv 550) sørover langs fjorden til Fv 109 og Bleievegen.</p>
+      <div class="stopp-liste">
+        <div class="stopp-kort">
+          <div class="stopp-num" style="font-size:0.85rem">Start</div>
+          <div class="stopp-navn">Aga</div>
+          <div class="stopp-info">Startpunkt</div>
+          <div class="stopp-moh"></div>
+        </div>
+        <div class="stopp-kort">
+          <div class="stopp-num">1</div>
+          <div class="stopp-navn">Aga Sideri</div>
+          <div class="stopp-info">Første smak · Aga</div>
+          <div class="stopp-moh">agasideri.no</div>
+        </div>
+        <div class="stopp-kort">
+          <div class="stopp-num">2</div>
+          <div class="stopp-navn">Store Naa Siderkompani</div>
+          <div class="stopp-info">Langs Fv 550 · Nå</div>
+          <div class="stopp-moh">storenaasiderkompani.com</div>
+        </div>
+        <div class="stopp-kort">
+          <div class="stopp-num">3</div>
+          <div class="stopp-navn">Edel Sider · Åkre Gård</div>
+          <div class="stopp-info">Langs Fv 550 · Nå</div>
+          <div class="stopp-moh">akregard.no</div>
+        </div>
+        <div class="stopp-kort">
+          <div class="stopp-num">4</div>
+          <div class="stopp-navn">Kvestad Sideri</div>
+          <div class="stopp-info">Fv 109 · Nå</div>
+          <div class="stopp-moh">220 moh · kvestadsideri.no</div>
+        </div>
+        <div class="stopp-kort">
+          <div class="stopp-num">5</div>
+          <div class="stopp-navn">Alde Sider</div>
+          <div class="stopp-info">Bleie Gård · Nå</div>
+          <div class="stopp-moh">aldesider.no</div>
+        </div>
+        <div class="stopp-kort">
+          <div class="stopp-num" style="font-size:0.85rem">Mål</div>
+          <div class="stopp-navn">Bleie</div>
+          <div class="stopp-info">Endepunkt</div>
+          <div class="stopp-moh"></div>
+        </div>
+      </div>
+      <a href="siderlopet_hardanger.gpx" download
+         style="display:inline-flex;align-items:center;gap:0.6rem;margin-top:2rem;
+                padding:0.8rem 1.6rem;background:#fff;border:1.5px solid #c8a84b;
+                border-radius:6px;color:#2c4a2e;font-family:'Source Serif 4',serif;
+                font-size:0.95rem;text-decoration:none;transition:background 0.2s;"
+         onmouseover="this.style.background='#f5f0e8'"
+         onmouseout="this.style.background='#fff'">
+        📥 Last ned GPX-fil
+        <span style="font-size:0.8rem;color:#999;">· Norgeskart, Garmin, Strava</span>
+      </a>
+    </section>
+  </div>
+
+  <!-- KART -->
+  <div class="kart-seksjon" id="kart">
+    <section class="section-wide">
+      <p class="section-label">Interaktivt kart</p>
+      <h2>Se løypen i <em>kartet</em></h2>
+      <p>Klikk på markørene for mer info om hver gård, og utforsk ruten langs vestsiden av Sørfjorden.</p>
+      <div class="kart-wrapper">
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=1zhzgnZqvD78SGGgbU497R3C_JNHpIi4&ehbc=2E312F&noprof=1"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <a class="kart-lenke" href="https://www.google.com/maps/d/viewer?mid=1zhzgnZqvD78SGGgbU497R3C_JNHpIi4" target="_blank" rel="noopener">
+        🗺️ Åpne kartet i Google Maps →
+      </a>
+    </section>
+  </div>
+
+  <!-- PRAKTISK -->
+  <div class="stripe" id="praktisk">
+    <section>
+      <p class="section-label">Praktisk informasjon</p>
+      <h2>Det du trenger <em>å vite</em></h2>
+      <div class="praktisk-grid">
+        <div class="praktisk-kort">
+          <div class="praktisk-ikon">📅</div>
+          <div class="praktisk-tittel">Når</div>
+          <p class="praktisk-txt">En lørdag i august 2026. Starttid ca. kl. 10:00 fra Aga Sideri.</p>
+        </div>
+        <div class="praktisk-kort">
+          <div class="praktisk-ikon">👟</div>
+          <div class="praktisk-tittel">Hvem</div>
+          <p class="praktisk-txt">Et privat løp for noen skøyere. Passe løpeform anbefales – det er stopp underveis.</p>
+        </div>
+        <div class="praktisk-kort">
+          <div class="praktisk-ikon">🗺️</div>
+          <div class="praktisk-tittel">Ruten</div>
+          <p class="praktisk-txt">Ruten går langs grus- og asfaltveier – vanlige løpesko holder. <a href="siderlopet_hardanger.gpx" download style="color:#2c4a2e;">Last ned GPX-fil</a></p>
+        </div>
+        <div class="praktisk-kort">
+          <div class="praktisk-ikon">🍎</div>
+          <div class="praktisk-tittel">Sider</div>
+          <p class="praktisk-txt">Vi kjøper sider direkte på hver gård underveis. Ta med penger/Vipps.</p>
+        </div>
+        <div class="praktisk-kort">
+          <div class="praktisk-ikon">🏨</div>
+          <div class="praktisk-tittel">Losji</div>
+          <p class="praktisk-txt">TBA.</p>
+        </div>
+        <div class="praktisk-kort">
+          <div class="praktisk-ikon">✉️</div>
+          <div class="praktisk-tittel">Kontakt</div>
+          <p class="praktisk-txt">Spørsmål? Ta kontakt på <a href="mailto:pdsenum@gmail.com" style="color:var(--grønn)">pdsenum@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>Siderløpet i Hardanger</strong>
+    <div class="ornament">· · ·</div>
+    <p>Vestsiden av Sørfjorden · Ullensvang · August 2026</p>
+    <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.4">Sider frå Hardanger – beskyttet geografisk betegnelse</p>
+  </footer>
+
+  <script>
+    // Navbar scroll-effekt
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
+</body>
+</html>
