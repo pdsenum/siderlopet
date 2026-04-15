@@ -2,8 +2,7 @@
 <html lang="no">
 <head>
   <meta charset="UTF-8">
-  <meta charset="UTF-8">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Siderløpet i Hardanger</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -461,6 +460,70 @@
     @media (max-width: 680px) {
       .kart-wrapper iframe { height: 380px; }
     }
+
+    /* ── INTERESSELISTE ── */
+    .interesse-seksjon {
+      background: var(--grønn);
+    }
+
+    .interesse-seksjon section {
+      max-width: 680px;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .interesse-boks {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(200,168,75,0.4);
+      border-radius: 10px;
+      padding: 3rem 2.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .interesse-badge {
+      display: inline-block;
+      background: #8a2020;
+      color: #ffd0d0;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    .interesse-knapp {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      background: var(--gull);
+      color: var(--grønn);
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .interesse-knapp:hover {
+      background: var(--gull-lys);
+      transform: translateY(-1px);
+    }
+
+    .interesse-liste {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .interesse-punkt {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+
   </style>
 </head>
 <body>
@@ -473,6 +536,7 @@
       <li><a href="#rute">Ruten</a></li>
       <li><a href="#kart">Kart</a></li>
       <li><a href="#praktisk">Praktisk</a></li>
+      <li><a href="#interesse" style="color:var(--gull-lys);font-weight:600;">Meld interesse</a></li>
     </ul>
   </nav>
 
@@ -647,6 +711,36 @@
           <div class="praktisk-tittel">Kontakt</div>
           <p class="praktisk-txt">Spørsmål? Ta kontakt på <a href="mailto:pdsenum@gmail.com" style="color:var(--grønn)">pdsenum@gmail.com</a></p>
         </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- INTERESSELISTE -->
+  <div class="interesse-seksjon" id="interesse">
+    <section>
+      <p class="section-label" style="color:var(--gull-lys);">Delta</p>
+      <h2 style="color:#fff;">Meld deg på <em style="color:var(--gull-lys);">interesselisten</em></h2>
+      <div class="interesse-boks">
+        <div class="interesse-badge">Siderløpet 2026 – Fullbooket</div>
+        <p style="color:rgba(255,255,255,0.8);font-size:1rem;line-height:1.7;margin:0;">
+          Løpet er fulltegnet for 2026, men du kan sette deg på venteliste
+          eller melde interesse for fremtidige løp. Fyll ut skjemaet så
+          hører du fra oss når det åpner for påmelding.
+        </p>
+        <div class="interesse-liste">
+          <span class="interesse-punkt">Plass på venteliste for Siderløpet 2026</span>
+          <span class="interesse-punkt">Informasjon om fremtidige løp</span>
+          <span class="interesse-punkt">Nyheter fra Siderløpet i Hardanger</span>
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdEOGYkG8YWlUs1cP-Z4n0kWMohhGhxLfz_Q3xzFZrexGqoPA/viewform?usp=publish-editor"
+           target="_blank"
+           rel="noopener"
+           class="interesse-knapp">
+          Meld interesse →
+        </a>
+        <p style="margin-top:1.2rem;color:rgba(255,255,255,0.45);font-size:0.8rem;">
+          Skjemaet tar under 1 minutt å fylle ut.
+        </p>
       </div>
     </section>
   </div>
