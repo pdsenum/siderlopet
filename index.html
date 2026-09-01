@@ -93,12 +93,36 @@
       animation: fadeUp 1s 0.7s forwards;
     }
 
+    /* ── NY KNAPP I HERO ── */
+    .hero-cta {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.95rem 2.2rem;
+      background: var(--gull);
+      color: var(--grønn);
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 6px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+      transition: background 0.2s, transform 0.15s;
+      opacity: 0;
+      animation: fadeUp 1s 0.85s forwards;
+    }
+
+    .hero-cta:hover {
+      background: var(--gull-lys);
+      transform: translateY(-2px);
+    }
+
     .hero-meta {
       display: flex;
       gap: 2.5rem;
-      margin-top: 3rem;
+      margin-top: 2.5rem;
       opacity: 0;
-      animation: fadeUp 1s 0.9s forwards;
+      animation: fadeUp 1s 1s forwards;
     }
 
     .hero-meta-item {
@@ -600,10 +624,7 @@
       <li><a href="#kart">Kart</a></li>
       <li><a href="#praktisk">Praktisk</a></li>
       <li>
-        <a
-          href="#interesse"
-          style="color:var(--gull-lys);font-weight:600;"
-        >
+        <a href="#interesse" style="color:var(--gull-lys);font-weight:600;">
           Meld interesse
         </a>
       </li>
@@ -628,41 +649,45 @@
       Dato kommer – meld din interesse allerede nå.
     </p>
 
+    <!-- NY KNAPP DIREKTE TIL INTERESSESKJEMA -->
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdEOGYkG8YWlUs1cP-Z4n0kWMohhGhxLfz_Q3xzFZrexGqoPA/viewform?usp=publish-editor"
+      target="_blank"
+      rel="noopener"
+      class="hero-cta"
+    >
+      Meld interesse →
+    </a>
+
+
     <div class="hero-meta">
 
       <div class="hero-meta-item">
         <div class="hero-meta-num">
           ~15
         </div>
-
         <div class="hero-meta-label">
           km
         </div>
       </div>
 
-
       <div class="hero-divider"></div>
-
 
       <div class="hero-meta-item">
         <div class="hero-meta-num">
           5
         </div>
-
         <div class="hero-meta-label">
           siderstopp
         </div>
       </div>
 
-
       <div class="hero-divider"></div>
-
 
       <div class="hero-meta-item">
         <div class="hero-meta-num">
           2027
         </div>
-
         <div class="hero-meta-label">
           neste løp · dato kommer
         </div>
@@ -720,36 +745,23 @@
         <div class="om-tall">
 
           <div class="om-tall-item">
-            <div class="om-tall-num">
-              ~15
-            </div>
-
+            <div class="om-tall-num">~15</div>
             <div class="om-tall-txt">
               km total løypelengde
             </div>
           </div>
 
-
           <div class="om-tall-item">
-            <div class="om-tall-num">
-              ~200
-            </div>
-
+            <div class="om-tall-num">~200</div>
             <div class="om-tall-txt">
-              meter høyeste punkt
-              (Rodabergvegen)
+              meter høyeste punkt (Rodabergvegen)
             </div>
           </div>
 
-
           <div class="om-tall-item">
-            <div class="om-tall-num">
-              5
-            </div>
-
+            <div class="om-tall-num">5</div>
             <div class="om-tall-txt">
-              sidergårder – én smak
-              på hvert stopp
+              sidergårder – én smak på hvert stopp
             </div>
           </div>
 
@@ -786,151 +798,52 @@
       <div class="stopp-liste">
 
         <div class="stopp-kort">
-
-          <div
-            class="stopp-num"
-            style="font-size:0.85rem"
-          >
-            Start
-          </div>
-
-          <div class="stopp-navn">
-            Frukthagen Syreflot
-          </div>
-
-          <div class="stopp-info">
-            Startpunkt · Aga
-          </div>
-
+          <div class="stopp-num" style="font-size:0.85rem">Start</div>
+          <div class="stopp-navn">Frukthagen Syreflot</div>
+          <div class="stopp-info">Startpunkt · Aga</div>
           <div class="stopp-moh"></div>
-
         </div>
 
-
         <div class="stopp-kort">
-
-          <div class="stopp-num">
-            1
-          </div>
-
-          <div class="stopp-navn">
-            Aga Sideri
-          </div>
-
-          <div class="stopp-info">
-            Første smak · Aga
-          </div>
-
-          <div class="stopp-moh">
-            agasideri.no
-          </div>
-
+          <div class="stopp-num">1</div>
+          <div class="stopp-navn">Aga Sideri</div>
+          <div class="stopp-info">Første smak · Aga</div>
+          <div class="stopp-moh">agasideri.no</div>
         </div>
 
-
         <div class="stopp-kort">
-
-          <div class="stopp-num">
-            2
-          </div>
-
-          <div class="stopp-navn">
-            Store Naa Siderkompani
-          </div>
-
-          <div class="stopp-info">
-            Langs Fv 550 · Nå
-          </div>
-
-          <div class="stopp-moh">
-            storenaasiderkompani.com
-          </div>
-
+          <div class="stopp-num">2</div>
+          <div class="stopp-navn">Store Naa Siderkompani</div>
+          <div class="stopp-info">Langs Fv 550 · Nå</div>
+          <div class="stopp-moh">storenaasiderkompani.com</div>
         </div>
 
-
         <div class="stopp-kort">
-
-          <div class="stopp-num">
-            3
-          </div>
-
-          <div class="stopp-navn">
-            Edel Sider · Åkre Gård
-          </div>
-
-          <div class="stopp-info">
-            Langs Fv 550 · Nå
-          </div>
-
-          <div class="stopp-moh">
-            akregard.no
-          </div>
-
+          <div class="stopp-num">3</div>
+          <div class="stopp-navn">Edel Sider · Åkre Gård</div>
+          <div class="stopp-info">Langs Fv 550 · Nå</div>
+          <div class="stopp-moh">akregard.no</div>
         </div>
 
-
         <div class="stopp-kort">
-
-          <div class="stopp-num">
-            4
-          </div>
-
-          <div class="stopp-navn">
-            Kvestad Sideri
-          </div>
-
-          <div class="stopp-info">
-            Fv 109 · Nå
-          </div>
-
-          <div class="stopp-moh">
-            220 moh · kvestadsideri.no
-          </div>
-
+          <div class="stopp-num">4</div>
+          <div class="stopp-navn">Kvestad Sideri</div>
+          <div class="stopp-info">Fv 109 · Nå</div>
+          <div class="stopp-moh">220 moh · kvestadsideri.no</div>
         </div>
 
-
         <div class="stopp-kort">
-
-          <div class="stopp-num">
-            5
-          </div>
-
-          <div class="stopp-navn">
-            Alde Sider
-          </div>
-
-          <div class="stopp-info">
-            Bleie Gård · Nå
-          </div>
-
-          <div class="stopp-moh">
-            aldesider.no
-          </div>
-
+          <div class="stopp-num">5</div>
+          <div class="stopp-navn">Alde Sider</div>
+          <div class="stopp-info">Bleie Gård · Nå</div>
+          <div class="stopp-moh">aldesider.no</div>
         </div>
 
-
         <div class="stopp-kort">
-
-          <div
-            class="stopp-num"
-            style="font-size:0.85rem"
-          >
-            Mål
-          </div>
-
-          <div class="stopp-navn">
-            Siderhuset Ola K
-          </div>
-
-          <div class="stopp-info">
-            Endepunkt · Nå
-          </div>
-
+          <div class="stopp-num" style="font-size:0.85rem">Mål</div>
+          <div class="stopp-navn">Siderhuset Ola K</div>
+          <div class="stopp-info">Endepunkt · Nå</div>
           <div class="stopp-moh"></div>
-
         </div>
 
       </div>
@@ -958,10 +871,7 @@
         onmouseout="this.style.background='#fff'"
       >
         📥 Last ned GPX-fil
-
-        <span
-          style="font-size:0.8rem;color:#999;"
-        >
+        <span style="font-size:0.8rem;color:#999;">
           · Norgeskart, Garmin, Strava
         </span>
       </a>
@@ -1029,54 +939,36 @@
 
       <div class="praktisk-grid">
 
-
         <div class="praktisk-kort">
-
-          <div class="praktisk-ikon">
-            ✅
-          </div>
-
+          <div class="praktisk-ikon">✅</div>
           <div class="praktisk-tittel">
             Første løp gjennomført
           </div>
-
           <p class="praktisk-txt">
             Første gjennomføring ble arrangert privat i august 2026
             som en test av konsept, løype, logistikk og siderstopp.
           </p>
-
         </div>
 
 
         <div class="praktisk-kort">
-
-          <div class="praktisk-ikon">
-            👟
-          </div>
-
+          <div class="praktisk-ikon">👟</div>
           <div class="praktisk-tittel">
-            Neste år
+            Neste løp
           </div>
-
           <p class="praktisk-txt">
-            Vi planlegger allerede neste års gjennomføring,
-            og ambisjonen er å åpne for langt flere deltakere.
+            Neste Siderløp planlegges sommeren 2027.
+            Ambisjonen er å åpne for langt flere deltakere.
             Dato kommer etter hvert.
           </p>
-
         </div>
 
 
         <div class="praktisk-kort">
-
-          <div class="praktisk-ikon">
-            🗺️
-          </div>
-
+          <div class="praktisk-ikon">🗺️</div>
           <div class="praktisk-tittel">
             Ruten
           </div>
-
           <p class="praktisk-txt">
             Ruten går langs grus- og asfaltveier.
             Vanlige løpesko holder.
@@ -1088,61 +980,42 @@
               Last ned GPX-fil
             </a>
           </p>
-
         </div>
 
 
         <div class="praktisk-kort">
-
-          <div class="praktisk-ikon">
-            🍎
-          </div>
-
+          <div class="praktisk-ikon">🍎</div>
           <div class="praktisk-tittel">
             Sider og lokale produsenter
           </div>
-
           <p class="praktisk-txt">
-            De lokale siderprodusentene har vært en viktig del
-            av konseptet, og engasjementet fra produsentene under
-            årets testløp var fantastisk.
+            De lokale siderprodusentene er en viktig del
+            av konseptet, og engasjementet fra produsentene
+            under årets testløp var fantastisk.
           </p>
-
         </div>
 
 
         <div class="praktisk-kort">
-
-          <div class="praktisk-ikon">
-            ✨
-          </div>
-
+          <div class="praktisk-ikon">✨</div>
           <div class="praktisk-tittel">
             Spennende ting på gang
           </div>
-
           <p class="praktisk-txt">
             Vi jobber med videreutviklingen av Siderløpet og
             har kanskje noen spennende nyheter på lur.
             Mer informasjon kommer fortløpende.
           </p>
-
         </div>
 
 
         <div class="praktisk-kort">
-
-          <div class="praktisk-ikon">
-            ✉️
-          </div>
-
+          <div class="praktisk-ikon">✉️</div>
           <div class="praktisk-tittel">
             Kontakt
           </div>
-
           <p class="praktisk-txt">
-            Spørsmål?
-            Ta kontakt på
+            Spørsmål? Ta kontakt på
             <a
               href="mailto:pdsenum@gmail.com"
               style="color:var(--grønn)"
@@ -1150,7 +1023,6 @@
               pdsenum@gmail.com
             </a>
           </p>
-
         </div>
 
       </div>
@@ -1161,10 +1033,7 @@
 
 
   <!-- INTERESSELISTE -->
-  <div
-    class="interesse-seksjon"
-    id="interesse"
-  >
+  <div class="interesse-seksjon" id="interesse">
 
     <section>
 
