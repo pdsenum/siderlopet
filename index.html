@@ -5,10 +5,16 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Siderløpet i Hardanger</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --grønn:     #2c4a2e;
@@ -21,7 +27,9 @@
       --tekst-lys: #4a5e4b;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Source Serif 4', Georgia, serif;
@@ -180,8 +188,14 @@
       color: var(--grønn-lys);
     }
 
-    p { margin-bottom: 1.2rem; color: var(--tekst-lys); }
-    p:last-child { margin-bottom: 0; }
+    p {
+      margin-bottom: 1.2rem;
+      color: var(--tekst-lys);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
 
     /* ── OM ── */
     .om-grid {
@@ -192,7 +206,10 @@
     }
 
     @media (max-width: 680px) {
-      .om-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .om-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
     }
 
     .om-tall {
@@ -231,10 +248,21 @@
       padding: 5rem 2rem;
     }
 
-    .rute-bg .section-label { color: var(--gull-lys); }
-    .rute-bg h2 { color: #fff; }
-    .rute-bg h2 em { color: var(--gull-lys); }
-    .rute-bg p { color: rgba(255,255,255,0.7); }
+    .rute-bg .section-label {
+      color: var(--gull-lys);
+    }
+
+    .rute-bg h2 {
+      color: #fff;
+    }
+
+    .rute-bg h2 em {
+      color: var(--gull-lys);
+    }
+
+    .rute-bg p {
+      color: rgba(255,255,255,0.7);
+    }
 
     .stopp-liste {
       display: grid;
@@ -300,7 +328,9 @@
     }
 
     @media (max-width: 680px) {
-      .praktisk-grid { grid-template-columns: 1fr; }
+      .praktisk-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .praktisk-kort {
@@ -360,19 +390,35 @@
 
     /* ── ANIMASJONER ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50%       { opacity: 0.8; transform: scaleY(1.2); }
+      0%, 100% {
+        opacity: 0.3;
+        transform: scaleY(1);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: scaleY(1.2);
+      }
     }
 
     /* ── NAV ── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       padding: 1.2rem 2rem;
       display: flex;
@@ -414,10 +460,14 @@
       transition: color 0.2s;
     }
 
-    .nav-lenker a:hover { color: var(--gull-lys); }
+    .nav-lenker a:hover {
+      color: var(--gull-lys);
+    }
 
     @media (max-width: 600px) {
-      .nav-lenker { display: none; }
+      .nav-lenker {
+        display: none;
+      }
     }
 
     /* ── KART ── */
@@ -458,7 +508,9 @@
     }
 
     @media (max-width: 680px) {
-      .kart-wrapper iframe { height: 380px; }
+      .kart-wrapper iframe {
+        height: 380px;
+      }
     }
 
     /* ── INTERESSELISTE ── */
@@ -478,6 +530,13 @@
       border-radius: 10px;
       padding: 3rem 2.5rem;
       margin-top: 1.5rem;
+    }
+
+    .interesse-logo {
+      width: 95px;
+      height: 95px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
     }
 
     .interesse-badge {
@@ -523,242 +582,674 @@
       color: rgba(255,255,255,0.7);
       font-size: 0.9rem;
     }
-
   </style>
 </head>
+
 <body>
 
   <!-- NAV -->
   <nav id="nav">
     <a href="#" class="nav-logo">Siderløpet</a>
+
     <ul class="nav-lenker">
       <li><a href="#om">Om løpet</a></li>
       <li><a href="#rute">Ruten</a></li>
       <li><a href="#kart">Kart</a></li>
       <li><a href="#praktisk">Praktisk</a></li>
-      <li><a href="#interesse" style="color:var(--gull-lys);font-weight:600;">Meld interesse</a></li>
+      <li>
+        <a href="#interesse" style="color:var(--gull-lys);font-weight:600;">
+          Meld interesse
+        </a>
+      </li>
     </ul>
   </nav>
 
+
   <!-- HERO -->
   <div class="hero">
-    <p class="hero-eyebrow">Vestsiden av Sørfjorden · Hardanger</p>
-    <h1>Sider<em>løpet</em></h1>
-    <p class="hero-sub">Løp mellom sidergårder langs Sørfjorden. Smak lokalt håndverk underveis.</p>
+
+    <p class="hero-eyebrow">
+      Vestsiden av Sørfjorden · Hardanger
+    </p>
+
+    <h1>
+      Sider<em>løpet</em>
+    </h1>
+
+    <p class="hero-sub">
+      Løp mellom sidergårder langs Sørfjorden.
+      Smak lokalt håndverk underveis.
+    </p>
+
     <div class="hero-meta">
+
       <div class="hero-meta-item">
         <div class="hero-meta-num">~15</div>
         <div class="hero-meta-label">km</div>
       </div>
+
       <div class="hero-divider"></div>
+
       <div class="hero-meta-item">
         <div class="hero-meta-num">5</div>
         <div class="hero-meta-label">siderstopp</div>
       </div>
+
       <div class="hero-divider"></div>
+
       <div class="hero-meta-item">
-        <div class="hero-meta-num">aug</div>
-        <div class="hero-meta-label">2026</div>
+        <div class="hero-meta-num">2026</div>
+        <div class="hero-meta-label">første løp gjennomført</div>
       </div>
+
     </div>
-    <div class="scroll-hint">Scroll</div>
+
+    <div class="scroll-hint">
+      Scroll
+    </div>
+
   </div>
+
 
   <!-- OM LØPET -->
   <div id="om">
+
     <section>
+
       <div class="om-grid">
+
         <div>
-          <p class="section-label">Om arrangementet</p>
-          <h2>Et løp med <em>pause for smak</em></h2>
-          <p>Siderløpet er et uformelt løp langs vestsiden av Sørfjorden i Hardanger, der vi løper mellom fem av de lokale sidergårdene og tar en smakspause på hvert stopp.</p>
-          <p>Ruten starter på Frukthagen Syreflot i Aga, går oppover Rodabergvegen og ned til Fv 550, og følger fjordkanten sørover til Alde Sider. Målgang ved Siderhuset Ola K. Underveis passerer vi noen av Norges mest prisbelønte siderproducenter.</p>
-          <p>Løpet er privat og uformelt – det handler mer om Hardanger, sider og gode stunder enn om fart.</p>
+
+          <p class="section-label">
+            Om arrangementet
+          </p>
+
+          <h2>
+            Et løp med <em>pause for smak</em>
+          </h2>
+
+          <p>
+            Siderløpet er et uformelt løp langs vestsiden av
+            Sørfjorden i Hardanger. Underveis går turen mellom
+            lokale sidergårder, med mulighet til å smake på
+            lokalprodusert sider underveis.
+          </p>
+
+          <p>
+            Ruten starter på Frukthagen Syreflot i Aga, går
+            oppover Rodabergvegen og ned til Fv 550, og følger
+            fjordkanten sørover til Alde Sider. Målgang er ved
+            Siderhuset Ola K.
+          </p>
+
+          <p>
+            Siderløpet handler ikke først og fremst om fart.
+            Det handler om Hardanger, sider, natur og gode
+            stunder sammen med andre.
+          </p>
+
         </div>
+
+
         <div class="om-tall">
+
           <div class="om-tall-item">
             <div class="om-tall-num">~15</div>
-            <div class="om-tall-txt">km total løypelengde</div>
+            <div class="om-tall-txt">
+              km total løypelengde
+            </div>
           </div>
+
           <div class="om-tall-item">
             <div class="om-tall-num">~200</div>
-            <div class="om-tall-txt">meter høyeste punkt (Rodabergvegen)</div>
+            <div class="om-tall-txt">
+              meter høyeste punkt
+              (Rodabergvegen)
+            </div>
           </div>
+
           <div class="om-tall-item">
             <div class="om-tall-num">5</div>
-            <div class="om-tall-txt">sidergårder – én smak på hvert stopp</div>
+            <div class="om-tall-txt">
+              sidergårder – én smak
+              på hvert stopp
+            </div>
           </div>
+
         </div>
+
       </div>
+
     </section>
+
   </div>
+
 
   <!-- RUTEN -->
   <div class="rute-bg" id="rute">
+
     <section class="section-wide">
-      <p class="section-label">Løypen</p>
-      <h2>Fra Aga til <em>Alde</em></h2>
-      <p>Ruten starter på Frukthagen Syreflot i Aga, går oppover Rodabergvegen og ned til Fv 550, og følger fjordkanten sørover til Fv 109 og Bleievegen. Målgang ved Siderhuset Ola K.</p>
+
+      <p class="section-label">
+        Løypen
+      </p>
+
+      <h2>
+        Fra Aga til <em>Alde</em>
+      </h2>
+
+      <p>
+        Ruten starter på Frukthagen Syreflot i Aga, går
+        oppover Rodabergvegen og ned til Fv 550, og følger
+        fjordkanten sørover til Fv 109 og Bleievegen.
+        Målgang er ved Siderhuset Ola K.
+      </p>
+
+
       <div class="stopp-liste">
+
         <div class="stopp-kort">
-          <div class="stopp-num" style="font-size:0.85rem">Start</div>
-          <div class="stopp-navn">Frukthagen Syreflot</div>
-          <div class="stopp-info">Startpunkt · Aga</div>
+          <div class="stopp-num" style="font-size:0.85rem">
+            Start
+          </div>
+
+          <div class="stopp-navn">
+            Frukthagen Syreflot
+          </div>
+
+          <div class="stopp-info">
+            Startpunkt · Aga
+          </div>
+
           <div class="stopp-moh"></div>
         </div>
+
+
         <div class="stopp-kort">
           <div class="stopp-num">1</div>
-          <div class="stopp-navn">Aga Sideri</div>
-          <div class="stopp-info">Første smak · Aga</div>
-          <div class="stopp-moh">agasideri.no</div>
+
+          <div class="stopp-navn">
+            Aga Sideri
+          </div>
+
+          <div class="stopp-info">
+            Første smak · Aga
+          </div>
+
+          <div class="stopp-moh">
+            agasideri.no
+          </div>
         </div>
+
+
         <div class="stopp-kort">
           <div class="stopp-num">2</div>
-          <div class="stopp-navn">Store Naa Siderkompani</div>
-          <div class="stopp-info">Langs Fv 550 · Nå</div>
-          <div class="stopp-moh">storenaasiderkompani.com</div>
+
+          <div class="stopp-navn">
+            Store Naa Siderkompani
+          </div>
+
+          <div class="stopp-info">
+            Langs Fv 550 · Nå
+          </div>
+
+          <div class="stopp-moh">
+            storenaasiderkompani.com
+          </div>
         </div>
+
+
         <div class="stopp-kort">
           <div class="stopp-num">3</div>
-          <div class="stopp-navn">Edel Sider · Åkre Gård</div>
-          <div class="stopp-info">Langs Fv 550 · Nå</div>
-          <div class="stopp-moh">akregard.no</div>
+
+          <div class="stopp-navn">
+            Edel Sider · Åkre Gård
+          </div>
+
+          <div class="stopp-info">
+            Langs Fv 550 · Nå
+          </div>
+
+          <div class="stopp-moh">
+            akregard.no
+          </div>
         </div>
+
+
         <div class="stopp-kort">
           <div class="stopp-num">4</div>
-          <div class="stopp-navn">Kvestad Sideri</div>
-          <div class="stopp-info">Fv 109 · Nå</div>
-          <div class="stopp-moh">220 moh · kvestadsideri.no</div>
+
+          <div class="stopp-navn">
+            Kvestad Sideri
+          </div>
+
+          <div class="stopp-info">
+            Fv 109 · Nå
+          </div>
+
+          <div class="stopp-moh">
+            220 moh · kvestadsideri.no
+          </div>
         </div>
+
+
         <div class="stopp-kort">
           <div class="stopp-num">5</div>
-          <div class="stopp-navn">Alde Sider</div>
-          <div class="stopp-info">Bleie Gård · Nå</div>
-          <div class="stopp-moh">aldesider.no</div>
+
+          <div class="stopp-navn">
+            Alde Sider
+          </div>
+
+          <div class="stopp-info">
+            Bleie Gård · Nå
+          </div>
+
+          <div class="stopp-moh">
+            aldesider.no
+          </div>
         </div>
+
+
         <div class="stopp-kort">
-          <div class="stopp-num" style="font-size:0.85rem">Mål</div>
-          <div class="stopp-navn">Siderhuset Ola K</div>
-          <div class="stopp-info">Endepunkt · Nå</div>
+          <div class="stopp-num" style="font-size:0.85rem">
+            Mål
+          </div>
+
+          <div class="stopp-navn">
+            Siderhuset Ola K
+          </div>
+
+          <div class="stopp-info">
+            Endepunkt · Nå
+          </div>
+
           <div class="stopp-moh"></div>
         </div>
+
       </div>
-      <a href="siderlopet_hardanger.gpx" download
-         style="display:inline-flex;align-items:center;gap:0.6rem;margin-top:2rem;
-                padding:0.8rem 1.6rem;background:#fff;border:1.5px solid #c8a84b;
-                border-radius:6px;color:#2c4a2e;font-family:'Source Serif 4',serif;
-                font-size:0.95rem;text-decoration:none;transition:background 0.2s;"
-         onmouseover="this.style.background='#f5f0e8'"
-         onmouseout="this.style.background='#fff'">
+
+
+      <a
+        href="siderlopet_hardanger.gpx"
+        download
+        style="
+          display:inline-flex;
+          align-items:center;
+          gap:0.6rem;
+          margin-top:2rem;
+          padding:0.8rem 1.6rem;
+          background:#fff;
+          border:1.5px solid #c8a84b;
+          border-radius:6px;
+          color:#2c4a2e;
+          font-family:'Source Serif 4',serif;
+          font-size:0.95rem;
+          text-decoration:none;
+          transition:background 0.2s;
+        "
+        onmouseover="this.style.background='#f5f0e8'"
+        onmouseout="this.style.background='#fff'"
+      >
         📥 Last ned GPX-fil
-        <span style="font-size:0.8rem;color:#999;">· Norgeskart, Garmin, Strava</span>
+        <span style="font-size:0.8rem;color:#999;">
+          · Norgeskart, Garmin, Strava
+        </span>
       </a>
+
     </section>
+
   </div>
+
 
   <!-- KART -->
   <div class="kart-seksjon" id="kart">
+
     <section class="section-wide">
-      <p class="section-label">Interaktivt kart</p>
-      <h2>Se løypen i <em>kartet</em></h2>
-      <p>Klikk på markørene for mer info om hver gård, og utforsk ruten langs vestsiden av Sørfjorden.</p>
+
+      <p class="section-label">
+        Interaktivt kart
+      </p>
+
+      <h2>
+        Se løypen i <em>kartet</em>
+      </h2>
+
+      <p>
+        Klikk på markørene for mer info om hver gård,
+        og utforsk ruten langs vestsiden av Sørfjorden.
+      </p>
+
       <div class="kart-wrapper">
+
         <iframe
           src="https://www.google.com/maps/d/embed?mid=1zhzgnZqvD78SGGgbU497R3C_JNHpIi4&ehbc=2E312F&noprof=1"
           allowfullscreen
           loading="lazy">
         </iframe>
+
       </div>
-      <a class="kart-lenke" href="https://www.google.com/maps/d/viewer?mid=1zhzgnZqvD78SGGgbU497R3C_JNHpIi4" target="_blank" rel="noopener">
+
+      <a
+        class="kart-lenke"
+        href="https://www.google.com/maps/d/viewer?mid=1zhzgnZqvD78SGGgbU497R3C_JNHpIi4"
+        target="_blank"
+        rel="noopener"
+      >
         🗺️ Åpne kartet i Google Maps →
       </a>
+
     </section>
+
   </div>
+
 
   <!-- PRAKTISK -->
   <div class="stripe" id="praktisk">
+
     <section>
-      <p class="section-label">Praktisk informasjon</p>
-      <h2>Det du trenger <em>å vite</em></h2>
+
+      <p class="section-label">
+        Praktisk informasjon
+      </p>
+
+      <h2>
+        Det du trenger <em>å vite</em>
+      </h2>
+
+
       <div class="praktisk-grid">
+
         <div class="praktisk-kort">
-          <div class="praktisk-ikon">📅</div>
-          <div class="praktisk-tittel">Når</div>
-          <p class="praktisk-txt">En lørdag i august 2026. Start kl. 10:00 fra Frukthagen Syreflot, Aga.</p>
+
+          <div class="praktisk-ikon">✅</div>
+
+          <div class="praktisk-tittel">
+            Første løp gjennomført
+          </div>
+
+          <p class="praktisk-txt">
+            Første gjennomføring ble arrangert privat i august 2026
+            som en test av konsept, løype, logistikk og siderstopp.
+          </p>
+
         </div>
+
+
         <div class="praktisk-kort">
+
           <div class="praktisk-ikon">👟</div>
-          <div class="praktisk-tittel">Hvem</div>
-          <p class="praktisk-txt">Et privat løp for noen skøyere. Passe løpeform anbefales – det er stopp underveis.</p>
+
+          <div class="praktisk-tittel">
+            Neste år
+          </div>
+
+          <p class="praktisk-txt">
+            Vi planlegger allerede neste års gjennomføring,
+            og ambisjonen er å åpne for langt flere deltakere.
+          </p>
+
         </div>
+
+
         <div class="praktisk-kort">
+
           <div class="praktisk-ikon">🗺️</div>
-          <div class="praktisk-tittel">Ruten</div>
-          <p class="praktisk-txt">Ruten går langs grus- og asfaltveier – vanlige løpesko holder. <a href="siderlopet_hardanger.gpx" download style="color:#2c4a2e;">Last ned GPX-fil</a></p>
+
+          <div class="praktisk-tittel">
+            Ruten
+          </div>
+
+          <p class="praktisk-txt">
+            Ruten går langs grus- og asfaltveier.
+            Vanlige løpesko holder.
+            <a
+              href="siderlopet_hardanger.gpx"
+              download
+              style="color:#2c4a2e;"
+            >
+              Last ned GPX-fil
+            </a>
+          </p>
+
         </div>
+
+
         <div class="praktisk-kort">
+
           <div class="praktisk-ikon">🍎</div>
-          <div class="praktisk-tittel">Sider</div>
-          <p class="praktisk-txt">Vi kjøper sider direkte på hver gård underveis. Ta med penger/Vipps.</p>
+
+          <div class="praktisk-tittel">
+            Sider og lokale produsenter
+          </div>
+
+          <p class="praktisk-txt">
+            De lokale siderprodusentene har vært en viktig del
+            av konseptet, og engasjementet fra produsentene under
+            årets testløp var fantastisk.
+          </p>
+
         </div>
+
+
         <div class="praktisk-kort">
-          <div class="praktisk-ikon">🏨</div>
-          <div class="praktisk-tittel">Losji</div>
-          <p class="praktisk-txt">TBA.</p>
+
+          <div class="praktisk-ikon">✨</div>
+
+          <div class="praktisk-tittel">
+            Spennende ting på gang
+          </div>
+
+          <p class="praktisk-txt">
+            Vi jobber med videreutviklingen av Siderløpet og
+            har kanskje noen spennende nyheter på lur.
+            Mer informasjon kommer fortløpende.
+          </p>
+
         </div>
+
+
         <div class="praktisk-kort">
+
           <div class="praktisk-ikon">✉️</div>
-          <div class="praktisk-tittel">Kontakt</div>
-          <p class="praktisk-txt">Spørsmål? Ta kontakt på <a href="mailto:pdsenum@gmail.com" style="color:var(--grønn)">pdsenum@gmail.com</a></p>
+
+          <div class="praktisk-tittel">
+            Kontakt
+          </div>
+
+          <p class="praktisk-txt">
+            Spørsmål?
+            Ta kontakt på
+            <a
+              href="mailto:pdsenum@gmail.com"
+              style="color:var(--grønn)"
+            >
+              pdsenum@gmail.com
+            </a>
+          </p>
+
         </div>
+
       </div>
+
     </section>
+
   </div>
+
 
   <!-- INTERESSELISTE -->
   <div class="interesse-seksjon" id="interesse">
+
     <section>
-      <p class="section-label" style="color:var(--gull-lys);">Delta</p>
-      <h2 style="color:#fff;">Meld deg på <em style="color:var(--gull-lys);">interesselisten</em></h2>
+
+      <p
+        class="section-label"
+        style="color:var(--gull-lys);"
+      >
+        Neste løp
+      </p>
+
+
+      <h2 style="color:#fff;">
+        Meld deg på
+        <em style="color:var(--gull-lys);">
+          interesselisten
+        </em>
+      </h2>
+
+
       <div class="interesse-boks">
-        <div class="interesse-badge">Siderløpet 2026 – Fullbooket</div>
-        <p style="color:rgba(255,255,255,0.8);font-size:1rem;line-height:1.7;margin:0;">
-          Løpet er fulltegnet for 2026, men du kan sette deg på venteliste
-          eller melde interesse for fremtidige løp. Fyll ut skjemaet så
-          hører du fra oss når det åpner for påmelding.
-        </p>
-        <div class="interesse-liste">
-          <span class="interesse-punkt">Plass på venteliste for Siderløpet 2026</span>
-          <span class="interesse-punkt">Informasjon om fremtidige løp</span>
-          <span class="interesse-punkt">Nyheter fra Siderløpet i Hardanger</span>
+
+        <img
+          src="SIDERLOPET.png"
+          alt="Siderløpet i Hardanger"
+          class="interesse-logo"
+        >
+
+
+        <div class="interesse-badge">
+          Siderløpet 2026 · Gjennomført
         </div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdEOGYkG8YWlUs1cP-Z4n0kWMohhGhxLfz_Q3xzFZrexGqoPA/viewform?usp=publish-editor"
-           target="_blank"
-           rel="noopener"
-           class="interesse-knapp">
+
+
+        <p
+          style="
+            color:rgba(255,255,255,0.8);
+            font-size:1rem;
+            line-height:1.7;
+            margin:0;
+          "
+        >
+          Det første Siderløpet ble gjennomført i august 2026
+          som en privat test av konseptet. Vi fikk stort engasjement
+          fra de lokale siderprodusentene, opplevde nydelig natur,
+          smakte fantastisk sider og hadde en veldig gøy dag.
+        </p>
+
+
+        <p
+          style="
+            color:rgba(255,255,255,0.8);
+            font-size:1rem;
+            line-height:1.7;
+          "
+        >
+          Konklusjonen er klar:
+          <strong>Dette er liv laga!</strong>
+        </p>
+
+
+        <p
+          style="
+            color:rgba(255,255,255,0.8);
+            font-size:1rem;
+            line-height:1.7;
+          "
+        >
+          Vi er allerede i gang med planleggingen av neste års
+          gjennomføring. Da blir det plass til langt flere deltakere,
+          og kanskje kommer det også noen spennende nyheter.
+        </p>
+
+
+        <p
+          style="
+            color:rgba(255,255,255,0.8);
+            font-size:1rem;
+            line-height:1.7;
+            margin-bottom:0;
+          "
+        >
+          Mer informasjon kommer fortløpende.
+          I mellomtiden kan du melde din interesse,
+          så holder vi deg oppdatert når mer er klart.
+        </p>
+
+
+        <div class="interesse-liste">
+
+          <span class="interesse-punkt">
+            🏃 Informasjon om neste Siderløp
+          </span>
+
+          <span class="interesse-punkt">
+            🍎 Nyheter fra Siderløpet i Hardanger
+          </span>
+
+          <span class="interesse-punkt">
+            ✨ Informasjon om spennende nyheter
+          </span>
+
+        </div>
+
+
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdEOGYkG8YWlUs1cP-Z4n0kWMohhGhxLfz_Q3xzFZrexGqoPA/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noopener"
+          class="interesse-knapp"
+        >
           Meld interesse →
         </a>
-        <p style="margin-top:1.2rem;color:rgba(255,255,255,0.45);font-size:0.8rem;">
+
+
+        <p
+          style="
+            margin-top:1.2rem;
+            color:rgba(255,255,255,0.45);
+            font-size:0.8rem;
+          "
+        >
           Skjemaet tar under 1 minutt å fylle ut.
         </p>
+
       </div>
+
     </section>
+
   </div>
+
 
   <!-- FOOTER -->
   <footer>
-    <strong>Siderløpet i Hardanger</strong>
-    <div class="ornament">· · ·</div>
-    <p>Vestsiden av Sørfjorden · Ullensvang · August 2026</p>
-    <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.4">Sider frå Hardanger – beskyttet geografisk betegnelse</p>
+
+    <strong>
+      Siderløpet i Hardanger
+    </strong>
+
+    <div class="ornament">
+      · · ·
+    </div>
+
+    <p>
+      Vestsiden av Sørfjorden · Ullensvang · 2026
+    </p>
+
+    <p
+      style="
+        margin-top:0.5rem;
+        font-size:0.75rem;
+        opacity:0.4;
+      "
+    >
+      Sider frå Hardanger – beskyttet geografisk betegnelse
+    </p>
+
   </footer>
 
+
   <script>
+
     // Navbar scroll-effekt
     const nav = document.getElementById('nav');
+
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
+      nav.classList.toggle(
+        'scrolled',
+        window.scrollY > 60
+      );
     });
+
   </script>
+
 </body>
 </html>
