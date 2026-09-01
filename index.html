@@ -55,8 +55,18 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 2rem;
+      padding: 7rem 2rem 6rem;
       position: relative;
+    }
+
+    .hero-logo {
+      width: 145px;
+      height: 145px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.1s forwards;
+      filter: drop-shadow(0 5px 14px rgba(0,0,0,0.18));
     }
 
     .hero-eyebrow {
@@ -263,72 +273,97 @@
       margin-top: 0.2rem;
     }
 
-    /* ── BILDEGALLERI ── */
-    .bilder-seksjon {
+    /* ── HISTORIEN ── */
+    .historie-seksjon {
       background: var(--krem-mørk);
       border-top: 1px solid #d8d0c0;
       border-bottom: 1px solid #d8d0c0;
     }
 
-    .bilder-seksjon section {
-      max-width: 1100px;
+    .historie-seksjon section {
+      max-width: 900px;
       padding: 5rem 2rem;
     }
 
-    .bilder-intro {
-      max-width: 700px;
-      margin-bottom: 2.5rem;
+    .historie-intro {
+      max-width: 680px;
+      margin-bottom: 3.5rem;
     }
 
-    .bildegalleri {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      grid-auto-rows: 240px;
-      gap: 1rem;
+    .historie-linje {
+      position: relative;
+      margin-left: 1rem;
+      padding-left: 2.5rem;
     }
 
-    .bildekort {
-      overflow: hidden;
-      border-radius: 6px;
-      background: var(--krem);
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    .historie-linje::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.4rem;
+      bottom: 0.4rem;
+      width: 1px;
+      background: var(--gull);
+      opacity: 0.55;
     }
 
-    .bildekort img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
+    .historie-punkt {
+      position: relative;
+      margin-bottom: 3rem;
     }
 
-    .bildekort:hover img {
-      transform: scale(1.03);
+    .historie-punkt:last-child {
+      margin-bottom: 0;
     }
 
-    .bildekort.stor {
-      grid-row: span 2;
+    .historie-punkt::before {
+      content: '';
+      position: absolute;
+      left: -2.86rem;
+      top: 0.35rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gull);
+      box-shadow: 0 0 0 5px var(--krem-mørk);
     }
 
-    @media (max-width: 760px) {
-      .bildegalleri {
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 190px;
+    .historie-aar {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gull);
+      margin-bottom: 0.25rem;
+    }
+
+    .historie-tittel {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      color: var(--grønn);
+      margin-bottom: 0.6rem;
+    }
+
+    .historie-tekst {
+      max-width: 680px;
+      font-size: 0.95rem;
+      color: var(--tekst-lys);
+    }
+
+    .historie-punchline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--grønn);
+      margin-top: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      .historie-linje {
+        margin-left: 0.5rem;
+        padding-left: 2rem;
       }
 
-      .bildekort.stor {
-        grid-row: span 2;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .bildegalleri {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 240px;
-      }
-
-      .bildekort.stor {
-        grid-row: span 1;
+      .historie-punkt::before {
+        left: -2.35rem;
       }
     }
 
@@ -664,89 +699,42 @@
       opacity: 0.5;
     }
 
-    /* ── ANIMASJONER ── */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes scrollPulse {
-      0%, 100% {
-        opacity: 0.3;
-        transform: scaleY(1);
-      }
-
-      50% {
-        opacity: 0.8;
-        transform: scaleY(1.2);
-      }
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 1.2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(20,38,22,0);
-      transition: background 0.4s, padding 0.4s;
-    }
-
-    nav.scrolled {
-      background: rgba(20,38,22,0.96);
-      padding: 0.8rem 2rem;
-    }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-style: italic;
-      color: #fff;
-      text-decoration: none;
-      opacity: 0;
-      animation: fadeUp 1s 0.2s forwards;
-    }
-
-    .nav-lenker {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      opacity: 0;
-      animation: fadeUp 1s 0.2s forwards;
-    }
-
-    .nav-lenker a {
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-lenker a:hover {
-      color: var(--gull-lys);
-    }
-
+    /* ── MOBIL ── */
     @media (max-width: 600px) {
+
       .nav-lenker {
         display: none;
+      }
+
+      .hero {
+        padding-top: 6rem;
+      }
+
+      .hero-logo {
+        width: 105px;
+        height: 105px;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-sub {
+        font-size: 1.05rem;
+      }
+
+      .hero-meta {
+        gap: 1.3rem;
+      }
+
+      .hero-meta-num {
+        font-size: 1.8rem;
+      }
+
+      .hero-meta-label {
+        font-size: 0.68rem;
       }
     }
   </style>
 </head>
+
 
 <body>
 
@@ -764,6 +752,10 @@
       </li>
 
       <li>
+        <a href="#historie">Historien</a>
+      </li>
+
+      <li>
         <a href="#2027">2027</a>
       </li>
 
@@ -776,14 +768,7 @@
       </li>
 
       <li>
-        <a href="#praktisk">Praktisk</a>
-      </li>
-
-      <li>
-        <a
-          href="#interesse"
-          style="color:var(--gull-lys);font-weight:600;"
-        >
+        <a href="#interesse" style="color:var(--gull-lys);font-weight:600;">
           Meld interesse
         </a>
       </li>
@@ -795,6 +780,12 @@
 
   <!-- HERO -->
   <div class="hero">
+
+    <img
+      src="SIDERLOPET.png"
+      alt="Siderløpet"
+      class="hero-logo"
+    >
 
     <p class="hero-eyebrow">
       Vestsiden av Sørfjorden · Hardanger
@@ -817,6 +808,7 @@
     >
       Meld interesse →
     </a>
+
 
     <div class="hero-meta">
 
@@ -962,114 +954,142 @@
   </div>
 
 
-  <!-- FØRSTE LØP -->
-  <section>
-
-    <p class="section-label">
-      August 2026
-    </p>
-
-    <h2>
-      Første Siderløp er <em>gjennomført!</em>
-    </h2>
-
-    <p>
-      I august 2026 gjennomførte vi det aller første
-      Siderløpet.
-    </p>
-
-    <p>
-      Gjennomføringen var privat og hadde som mål å teste
-      konseptet, løypen, logistikken, siderstoppene og hele
-      opplevelsen fra start til mål.
-    </p>
-
-    <p>
-      Vi fikk stort engasjement fra de lokale siderprodusentene,
-      opplevde nydelig natur, smakte fantastisk sider og hadde
-      rett og slett en veldig gøy dag.
-    </p>
-
-    <p>
-      Konklusjonen er klar:
-      <strong>Dette er liv laga!</strong>
-    </p>
-
-    <p>
-      Erfaringene fra testløpet bruker vi nå når vi planlegger
-      neste års arrangement.
-    </p>
-
-  </section>
-
-
-  <!-- BILDER FRA FØRSTE LØP -->
-  <div class="bilder-seksjon">
+  <!-- HISTORIEN OM SIDERLØPET -->
+  <div
+    class="historie-seksjon"
+    id="historie"
+  >
 
     <section>
 
-      <div class="bilder-intro">
+      <div class="historie-intro">
 
         <p class="section-label">
-          Første Siderløp
+          Historien om Siderløpet
         </p>
 
         <h2>
-          Slik så det <em>ut</em>
+          Fra Médoc til <em>Hardanger</em>
         </h2>
 
         <p>
-          En dag med løping, sider, fjord, gårder og godt selskap.
-          Første test er gjennomført – nå gleder vi oss til å
-          invitere langt flere med neste gang.
+          Siderløpet startet egentlig ikke i Hardanger.
+          Det startet med en idé vi fikk med oss hjem fra Frankrike.
         </p>
 
       </div>
 
 
-      <div class="bildegalleri">
+      <div class="historie-linje">
 
-        <div class="bildekort stor">
-          <img
-            src="testlop-1.jpg"
-            alt="Siderløpet 2026"
-          >
+
+        <!-- 2023 -->
+
+        <div class="historie-punkt">
+
+          <div class="historie-aar">
+            2023
+          </div>
+
+          <div class="historie-tittel">
+            Ideen begynner
+          </div>
+
+          <p class="historie-tekst">
+            Vi meldte oss på Marathon du Médoc i Frankrike –
+            et løp hvor løping kombineres med vin, mat og
+            opplevelser langs veien.
+          </p>
+
+          <p class="historie-tekst">
+            I forkant ble det mer målrettet løpetrening i Bergen,
+            gjerne med en rødvinspause eller to underveis.
+          </p>
+
         </div>
 
-        <div class="bildekort">
-          <img
-            src="testlop-2.jpg"
-            alt="Deltakere under Siderløpet 2026"
-          >
+
+        <!-- 2024 -->
+
+        <div class="historie-punkt">
+
+          <div class="historie-aar">
+            2024
+          </div>
+
+          <div class="historie-tittel">
+            Vi tar ideen med hjem
+          </div>
+
+          <p class="historie-tekst">
+            Vi deltok på Marathon du Médoc og fikk oppleve
+            konseptet på ordentlig.
+          </p>
+
+          <p class="historie-tekst">
+            Allerede da bestemte vi oss for at noe lignende
+            måtte kunne gjøres hjemme i Norge – med vår egen
+            natur, våre egne gårder og vår stolte sidertradisjon.
+          </p>
+
         </div>
 
-        <div class="bildekort">
-          <img
-            src="testlop-3.jpg"
-            alt="Sidergård under Siderløpet 2026"
-          >
+
+        <!-- 2024-2025 -->
+
+        <div class="historie-punkt">
+
+          <div class="historie-aar">
+            2024–2025
+          </div>
+
+          <div class="historie-tittel">
+            Siderløpet blir til
+          </div>
+
+          <p class="historie-tekst">
+            Domenet <strong>siderløpet.no</strong> ble kjøpt,
+            og ideen begynte gradvis å bli til et konkret prosjekt.
+          </p>
+
+          <p class="historie-tekst">
+            Vi planla løype, siderstopp, logistikk og hvordan
+            vi kunne skape en dag som kombinerer løping,
+            sider og Hardanger.
+          </p>
+
         </div>
 
-        <div class="bildekort">
-          <img
-            src="testlop-4.jpg"
-            alt="Sider under Siderløpet 2026"
-          >
+
+        <!-- 2026 -->
+
+        <div class="historie-punkt">
+
+          <div class="historie-aar">
+            2026
+          </div>
+
+          <div class="historie-tittel">
+            Endelig fikk vi det til
+          </div>
+
+          <p class="historie-tekst">
+            I august 2026 gjennomførte vi endelig det første
+            Siderløpet – privat, for å teste konseptet og se
+            om ideen faktisk fungerte i praksis.
+          </p>
+
+          <p class="historie-tekst">
+            Stort engasjement fra de lokale siderprodusentene,
+            nydelig natur, fantastisk sider og en veldig gøy dag.
+          </p>
+
+          <div class="historie-punchline">
+            Dette er liv laga.
+          </div>
+
         </div>
 
-        <div class="bildekort">
-          <img
-            src="testlop-5.jpg"
-            alt="Natur langs Siderløpet"
-          >
-        </div>
-
-        <div class="bildekort">
-          <img
-            src="testlop-6.jpg"
-            alt="Siderløpet i Hardanger"
-          >
-        </div>
 
       </div>
 
