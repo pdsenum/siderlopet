@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
   <meta charset="UTF-8">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Siderløpet i Hardanger</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
+    /* ─────────────────────────────
+       GRUNNSTIL
+    ───────────────────────────── */
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -39,175 +49,13 @@
       line-height: 1.7;
     }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(20,38,22,0.72) 0%,
-          rgba(20,38,22,0.45) 60%,
-          rgba(20,38,22,0.82) 100%
-        ),
-        url(hero.jpg) center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 7rem 2rem 6rem;
-      position: relative;
+    p {
+      margin-bottom: 1.2rem;
+      color: var(--tekst-lys);
     }
 
-    .hero-logo {
-      width: 145px;
-      height: 145px;
-      object-fit: contain;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 1s 0.1s forwards;
-      filter: drop-shadow(0 5px 14px rgba(0,0,0,0.18));
-    }
-
-    .hero-eyebrow {
-      font-family: 'Source Serif 4', serif;
-      font-size: 0.85rem;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gull-lys);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 1s 0.3s forwards;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: clamp(3rem, 9vw, 7rem);
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.5rem;
-      opacity: 0;
-      animation: fadeUp 1s 0.5s forwards;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gull-lys);
-    }
-
-    .hero-sub {
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.85);
-      margin-top: 1.2rem;
-      max-width: 560px;
-      opacity: 0;
-      animation: fadeUp 1s 0.7s forwards;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.95rem 2.3rem;
-      background: var(--gull);
-      color: var(--grønn);
-      font-family: 'Source Serif 4', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background 0.2s, transform 0.15s;
-      opacity: 0;
-      animation: fadeUp 1s 0.85s forwards;
-    }
-
-    .hero-cta:hover {
-      background: var(--gull-lys);
-      transform: translateY(-1px);
-    }
-
-    .hero-meta {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 1s 1s forwards;
-    }
-
-    .hero-meta-item {
-      text-align: center;
-    }
-
-    .hero-meta-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--gull-lys);
-      line-height: 1;
-    }
-
-    .hero-meta-label {
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      margin-top: 0.3rem;
-    }
-
-    .hero-divider {
-      width: 1px;
-      height: 50px;
-      background: rgba(255,255,255,0.2);
-      align-self: center;
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      opacity: 0;
-      animation: fadeUp 1s 1.5s forwards;
-    }
-
-    .scroll-hint::after {
-      content: '';
-      display: block;
-      width: 1px;
-      height: 40px;
-      background: rgba(255,255,255,0.3);
-      animation: scrollPulse 2s infinite;
-    }
-
-    /* ── SEKSJONER ── */
-    section {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-    }
-
-    .section-wide {
-      max-width: 1100px;
-    }
-
-    .section-label {
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gull);
-      margin-bottom: 1rem;
+    p:last-child {
+      margin-bottom: 0;
     }
 
     h2 {
@@ -224,486 +72,1324 @@
       color: var(--grønn-lys);
     }
 
-    p {
-      margin-bottom: 1.2rem;
-      color: var(--tekst-lys);
-    }
 
-    p:last-child {
-      margin-bottom: 0;
-    }
+    /* ─────────────────────────────
+       NAVIGASJON
+    ───────────────────────────── */
 
-    /* ── OM ── */
-    .om-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+    body > nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 1000;
+
+      padding: 1.2rem 2rem;
+
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+
+      background: rgba(20,38,22,0);
+
+      transition:
+        background 0.4s,
+        padding 0.4s;
     }
 
-    @media (max-width: 680px) {
-      .om-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
+    body > nav.scrolled {
+      background: rgba(20,38,22,0.96);
+      padding: 0.8rem 2rem;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+
+      color: #fff;
+      text-decoration: none;
+
+      opacity: 0;
+      animation: fadeUp 1s 0.2s forwards;
+    }
+
+    .nav-lenker {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      opacity: 0;
+      animation: fadeUp 1s 0.2s forwards;
+    }
+
+    .nav-lenker li {
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-lenker a {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+
+      transition: color 0.2s;
+    }
+
+    .nav-lenker a:hover {
+      color: var(--gull-lys);
+    }
+
+
+    /* ─────────────────────────────
+       HERO
+    ───────────────────────────── */
+
+    .hero {
+      min-height: 100vh;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(20,38,22,0.72) 0%,
+          rgba(20,38,22,0.45) 60%,
+          rgba(20,38,22,0.82) 100%
+        ),
+        url(hero.jpg) center/cover no-repeat;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 7rem 2rem 6rem;
+
+      position: relative;
+    }
+
+    .hero-logo {
+      width: 145px;
+      height: 145px;
+
+      object-fit: contain;
+
+      margin-bottom: 1.5rem;
+
+      opacity: 0;
+
+      animation: fadeUp 1s 0.1s forwards;
+
+      filter:
+        drop-shadow(0 5px 14px rgba(0,0,0,0.18));
+    }
+
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 300;
+
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+
+      color: var(--gull-lys);
+
+      margin-bottom: 1.5rem;
+
+      opacity: 0;
+
+      animation:
+        fadeUp 1s 0.3s forwards;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+
+      font-size: clamp(3rem, 9vw, 7rem);
+
+      font-weight: 700;
+
+      color: #fff;
+
+      line-height: 1.05;
+
+      letter-spacing: -0.01em;
+
+      margin-bottom: 0.5rem;
+
+      opacity: 0;
+
+      animation:
+        fadeUp 1s 0.5s forwards;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gull-lys);
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      font-weight: 300;
+
+      color: rgba(255,255,255,0.85);
+
+      margin-top: 1.2rem;
+
+      max-width: 560px;
+
+      opacity: 0;
+
+      animation:
+        fadeUp 1s 0.7s forwards;
+    }
+
+    .hero-cta {
+      display: inline-block;
+
+      margin-top: 2rem;
+
+      padding:
+        0.95rem 2.3rem;
+
+      background:
+        var(--gull);
+
+      color:
+        var(--grønn);
+
+      font-size:
+        1rem;
+
+      font-weight:
+        600;
+
+      text-decoration:
+        none;
+
+      border-radius:
+        6px;
+
+      transition:
+        background 0.2s,
+        transform 0.15s;
+
+      opacity: 0;
+
+      animation:
+        fadeUp 1s 0.85s forwards;
+    }
+
+    .hero-cta:hover {
+      background:
+        var(--gull-lys);
+
+      transform:
+        translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+
+      gap: 2.5rem;
+
+      margin-top: 2.5rem;
+
+      opacity: 0;
+
+      animation:
+        fadeUp 1s 1s forwards;
+    }
+
+    .hero-meta-item {
+      text-align: center;
+    }
+
+    .hero-meta-num {
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        2.2rem;
+
+      font-weight:
+        700;
+
+      color:
+        var(--gull-lys);
+
+      line-height:
+        1;
+    }
+
+    .hero-meta-label {
+      font-size:
+        0.8rem;
+
+      letter-spacing:
+        0.15em;
+
+      text-transform:
+        uppercase;
+
+      color:
+        rgba(255,255,255,0.6);
+
+      margin-top:
+        0.3rem;
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 50px;
+
+      background:
+        rgba(255,255,255,0.2);
+
+      align-self:
+        center;
+    }
+
+    .scroll-hint {
+      position:
+        absolute;
+
+      bottom:
+        2rem;
+
+      left:
+        50%;
+
+      transform:
+        translateX(-50%);
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      align-items:
+        center;
+
+      gap:
+        0.5rem;
+
+      color:
+        rgba(255,255,255,0.5);
+
+      font-size:
+        0.75rem;
+
+      letter-spacing:
+        0.1em;
+
+      text-transform:
+        uppercase;
+
+      opacity:
+        0;
+
+      animation:
+        fadeUp 1s 1.5s forwards;
+    }
+
+    .scroll-hint::after {
+      content: '';
+
+      display: block;
+
+      width: 1px;
+      height: 40px;
+
+      background:
+        rgba(255,255,255,0.3);
+
+      animation:
+        scrollPulse 2s infinite;
+    }
+
+
+    /* ─────────────────────────────
+       GENERELLE SEKSJONER
+    ───────────────────────────── */
+
+    section {
+      max-width: 780px;
+
+      margin:
+        0 auto;
+
+      padding:
+        5rem 2rem;
+    }
+
+    .section-wide {
+      max-width:
+        1100px;
+    }
+
+    .section-label {
+      font-size:
+        0.78rem;
+
+      font-weight:
+        400;
+
+      letter-spacing:
+        0.2em;
+
+      text-transform:
+        uppercase;
+
+      color:
+        var(--gull);
+
+      margin-bottom:
+        1rem;
+    }
+
+
+    /* ─────────────────────────────
+       OM LØPET
+    ───────────────────────────── */
+
+    .om-grid {
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        4rem;
+
+      align-items:
+        center;
     }
 
     .om-tall {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        2rem;
     }
 
     .om-tall-item {
-      border-left: 2px solid var(--gull);
-      padding-left: 1.5rem;
+      border-left:
+        2px solid var(--gull);
+
+      padding-left:
+        1.5rem;
     }
 
     .om-tall-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--grønn);
-      line-height: 1;
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        3rem;
+
+      font-weight:
+        700;
+
+      color:
+        var(--grønn);
+
+      line-height:
+        1;
     }
 
     .om-tall-txt {
-      font-size: 0.9rem;
-      color: var(--tekst-lys);
-      margin-top: 0.2rem;
+      font-size:
+        0.9rem;
+
+      color:
+        var(--tekst-lys);
+
+      margin-top:
+        0.2rem;
     }
 
-    /* ── HISTORIEN ── */
+
+    /* ─────────────────────────────
+       HISTORIEN
+    ───────────────────────────── */
+
     .historie-seksjon {
-      background: var(--krem-mørk);
-      border-top: 1px solid #d8d0c0;
-      border-bottom: 1px solid #d8d0c0;
+      background:
+        var(--krem-mørk);
+
+      border-top:
+        1px solid #d8d0c0;
+
+      border-bottom:
+        1px solid #d8d0c0;
     }
 
     .historie-seksjon section {
-      max-width: 900px;
-      padding: 5rem 2rem;
+      max-width:
+        900px;
+
+      padding:
+        5rem 2rem;
     }
 
     .historie-intro {
-      max-width: 680px;
-      margin-bottom: 3.5rem;
+      max-width:
+        680px;
+
+      margin-bottom:
+        3.5rem;
     }
 
     .historie-linje {
-      position: relative;
-      margin-left: 1rem;
-      padding-left: 2.5rem;
+      position:
+        relative;
+
+      margin-left:
+        1rem;
+
+      padding-left:
+        2.5rem;
     }
 
     .historie-linje::before {
       content: '';
-      position: absolute;
-      left: 0;
-      top: 0.4rem;
-      bottom: 0.4rem;
-      width: 1px;
-      background: var(--gull);
-      opacity: 0.55;
+
+      position:
+        absolute;
+
+      left:
+        0;
+
+      top:
+        0.4rem;
+
+      bottom:
+        0.4rem;
+
+      width:
+        1px;
+
+      background:
+        var(--gull);
+
+      opacity:
+        0.55;
     }
 
     .historie-punkt {
-      position: relative;
-      margin-bottom: 3rem;
+      position:
+        relative;
+
+      margin-bottom:
+        3rem;
     }
 
     .historie-punkt:last-child {
-      margin-bottom: 0;
+      margin-bottom:
+        0;
     }
 
     .historie-punkt::before {
       content: '';
-      position: absolute;
-      left: -2.86rem;
-      top: 0.35rem;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--gull);
-      box-shadow: 0 0 0 5px var(--krem-mørk);
+
+      position:
+        absolute;
+
+      left:
+        -2.86rem;
+
+      top:
+        0.35rem;
+
+      width:
+        10px;
+
+      height:
+        10px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--gull);
+
+      box-shadow:
+        0 0 0 5px var(--krem-mørk);
     }
 
     .historie-aar {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      color: var(--gull);
-      margin-bottom: 0.25rem;
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        1rem;
+
+      color:
+        var(--gull);
+
+      margin-bottom:
+        0.25rem;
     }
 
     .historie-tittel {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.55rem;
-      color: var(--grønn);
-      margin-bottom: 0.6rem;
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        1.55rem;
+
+      color:
+        var(--grønn);
+
+      margin-bottom:
+        0.6rem;
     }
 
     .historie-tekst {
-      max-width: 680px;
-      font-size: 0.95rem;
-      color: var(--tekst-lys);
+      max-width:
+        680px;
+
+      font-size:
+        0.95rem;
+
+      color:
+        var(--tekst-lys);
     }
 
     .historie-punchline {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-style: italic;
-      color: var(--grønn);
-      margin-top: 0.8rem;
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        1.5rem;
+
+      font-style:
+        italic;
+
+      color:
+        var(--grønn);
+
+      margin-top:
+        0.8rem;
     }
 
-    @media (max-width: 600px) {
-      .historie-linje {
-        margin-left: 0.5rem;
-        padding-left: 2rem;
-      }
 
-      .historie-punkt::before {
-        left: -2.35rem;
-      }
-    }
+    /* ─────────────────────────────
+       2027 TEASER
+    ───────────────────────────── */
 
-    /* ── 2027 TEASER ── */
     .teaser-seksjon {
-      background: var(--grønn);
-      text-align: center;
+      background:
+        var(--grønn);
+
+      text-align:
+        center;
     }
 
     .teaser-seksjon section {
-      max-width: 850px;
-      padding: 6rem 2rem;
+      max-width:
+        850px;
+
+      padding:
+        6rem 2rem;
     }
 
     .teaser-seksjon .section-label {
-      color: var(--gull-lys);
+      color:
+        var(--gull-lys);
     }
 
     .teaser-seksjon h2 {
-      color: #fff;
-      margin-bottom: 1rem;
+      color:
+        #fff;
+
+      margin-bottom:
+        1rem;
     }
 
     .teaser-seksjon h2 em {
-      color: var(--gull-lys);
+      color:
+        var(--gull-lys);
     }
 
     .teaser-dato {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 6vw, 4.5rem);
-      color: var(--gull-lys);
-      line-height: 1;
-      margin: 1.5rem 0;
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        clamp(2rem, 6vw, 4.5rem);
+
+      color:
+        var(--gull-lys);
+
+      line-height:
+        1;
+
+      margin:
+        1.5rem 0;
     }
 
     .teaser-dato-small {
-      display: block;
-      font-family: 'Source Serif 4', serif;
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      margin-top: 0.7rem;
+      display:
+        block;
+
+      font-family:
+        'Source Serif 4', serif;
+
+      font-size:
+        0.8rem;
+
+      font-weight:
+        400;
+
+      letter-spacing:
+        0.18em;
+
+      text-transform:
+        uppercase;
+
+      color:
+        rgba(255,255,255,0.55);
+
+      margin-top:
+        0.7rem;
     }
 
     .teaser-seksjon p {
-      color: rgba(255,255,255,0.75);
-      max-width: 620px;
-      margin-left: auto;
-      margin-right: auto;
+      color:
+        rgba(255,255,255,0.75);
+
+      max-width:
+        620px;
+
+      margin-left:
+        auto;
+
+      margin-right:
+        auto;
     }
 
     .teaser-highlight {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      color: #fff !important;
-      margin-top: 2rem;
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        1.35rem;
+
+      color:
+        #fff !important;
+
+      margin-top:
+        2rem;
     }
 
-    /* ── RUTE ── */
+
+    /* ─────────────────────────────
+       RUTEN
+    ───────────────────────────── */
+
     .rute-bg {
-      background: var(--grønn);
-      padding: 0;
+      background:
+        var(--grønn);
+
+      padding:
+        0;
     }
 
     .rute-bg section {
-      max-width: 1100px;
-      padding: 5rem 2rem;
+      max-width:
+        1100px;
+
+      padding:
+        5rem 2rem;
     }
 
     .rute-bg .section-label {
-      color: var(--gull-lys);
+      color:
+        var(--gull-lys);
     }
 
     .rute-bg h2 {
-      color: #fff;
+      color:
+        #fff;
     }
 
     .rute-bg h2 em {
-      color: var(--gull-lys);
+      color:
+        var(--gull-lys);
     }
 
     .rute-bg p {
-      color: rgba(255,255,255,0.7);
+      color:
+        rgba(255,255,255,0.7);
     }
 
     .rute-info {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.6rem 1rem;
-      border: 1px solid rgba(200,168,75,0.35);
-      border-radius: 4px;
-      color: rgba(255,255,255,0.65);
-      font-size: 0.82rem;
+      display:
+        inline-block;
+
+      margin-top:
+        1rem;
+
+      padding:
+        0.6rem 1rem;
+
+      border:
+        1px solid rgba(200,168,75,0.35);
+
+      border-radius:
+        4px;
+
+      color:
+        rgba(255,255,255,0.65);
+
+      font-size:
+        0.82rem;
     }
 
     .stopp-liste {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+      gap:
+        1.5rem;
+
+      margin-top:
+        3rem;
     }
 
     .stopp-kort {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 4px;
-      padding: 1.8rem 1.5rem;
-      position: relative;
-      transition: background 0.2s;
+      background:
+        rgba(255,255,255,0.07);
+
+      border:
+        1px solid rgba(255,255,255,0.12);
+
+      border-radius:
+        4px;
+
+      padding:
+        1.8rem 1.5rem;
+
+      position:
+        relative;
+
+      transition:
+        background 0.2s;
     }
 
     .stopp-kort:hover {
-      background: rgba(255,255,255,0.11);
+      background:
+        rgba(255,255,255,0.11);
     }
 
     .stopp-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--gull);
-      line-height: 1;
-      margin-bottom: 0.8rem;
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        2.8rem;
+
+      font-weight:
+        700;
+
+      color:
+        var(--gull);
+
+      line-height:
+        1;
+
+      margin-bottom:
+        0.8rem;
     }
 
     .stopp-navn {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: #fff;
-      margin-bottom: 0.4rem;
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        1.05rem;
+
+      color:
+        #fff;
+
+      margin-bottom:
+        0.4rem;
     }
 
     .stopp-info {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.5;
+      font-size:
+        0.82rem;
+
+      color:
+        rgba(255,255,255,0.5);
+
+      line-height:
+        1.5;
     }
 
     .stopp-moh {
-      font-size: 0.75rem;
-      color: var(--gull);
-      margin-top: 0.5rem;
-      letter-spacing: 0.05em;
+      font-size:
+        0.75rem;
+
+      color:
+        var(--gull);
+
+      margin-top:
+        0.5rem;
+
+      letter-spacing:
+        0.05em;
     }
 
-    /* ── KART ── */
+
+    /* ─────────────────────────────
+       KART
+    ───────────────────────────── */
+
     .kart-seksjon {
-      background: var(--krem);
+      background:
+        var(--krem);
     }
 
     .kart-seksjon section {
-      max-width: 1100px;
-      padding: 5rem 2rem;
+      max-width:
+        1100px;
+
+      padding:
+        5rem 2rem;
     }
 
     .kart-wrapper {
-      margin-top: 2.5rem;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
-      border: 1px solid var(--krem-mørk);
+      margin-top:
+        2.5rem;
+
+      border-radius:
+        8px;
+
+      overflow:
+        hidden;
+
+      box-shadow:
+        0 8px 40px rgba(0,0,0,0.12);
+
+      border:
+        1px solid var(--krem-mørk);
     }
 
     .kart-wrapper iframe {
-      display: block;
-      width: 100%;
-      height: 520px;
-      border: none;
+      display:
+        block;
+
+      width:
+        100%;
+
+      height:
+        520px;
+
+      border:
+        none;
     }
 
     .kart-lenke {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      color: var(--tekst-lys);
-      text-decoration: none;
+      display:
+        inline-block;
+
+      margin-top:
+        1rem;
+
+      font-size:
+        0.85rem;
+
+      color:
+        var(--tekst-lys);
+
+      text-decoration:
+        none;
     }
 
     .kart-lenke:hover {
-      color: var(--grønn);
+      color:
+        var(--grønn);
     }
 
-    @media (max-width: 680px) {
-      .kart-wrapper iframe {
-        height: 380px;
-      }
-    }
 
-    /* ── STRIPE ── */
+    /* ─────────────────────────────
+       PRAKTISK
+    ───────────────────────────── */
+
     .stripe {
-      background: var(--krem-mørk);
-      border-top: 1px solid #d8d0c0;
-      border-bottom: 1px solid #d8d0c0;
+      background:
+        var(--krem-mørk);
+
+      border-top:
+        1px solid #d8d0c0;
+
+      border-bottom:
+        1px solid #d8d0c0;
     }
 
-    /* ── PRAKTISK ── */
     .praktisk-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
+      display:
+        grid;
 
-    @media (max-width: 680px) {
-      .praktisk-grid {
-        grid-template-columns: 1fr;
-      }
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        3rem;
     }
 
     .praktisk-kort {
-      padding: 2rem;
-      background: #fff;
-      border-radius: 4px;
-      border-top: 3px solid var(--gull);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      padding:
+        2rem;
+
+      background:
+        #fff;
+
+      border-radius:
+        4px;
+
+      border-top:
+        3px solid var(--gull);
+
+      box-shadow:
+        0 2px 12px rgba(0,0,0,0.05);
     }
 
     .praktisk-ikon {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size:
+        1.8rem;
+
+      margin-bottom:
+        1rem;
     }
 
     .praktisk-tittel {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      color: var(--grønn);
-      margin-bottom: 0.6rem;
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        1.2rem;
+
+      color:
+        var(--grønn);
+
+      margin-bottom:
+        0.6rem;
     }
 
     .praktisk-txt {
-      font-size: 0.9rem;
-      color: var(--tekst-lys);
-      margin: 0;
+      font-size:
+        0.9rem;
+
+      color:
+        var(--tekst-lys);
+
+      margin:
+        0;
     }
 
-    /* ── INTERESSELISTE ── */
+
+    /* ─────────────────────────────
+       INTERESSE
+    ───────────────────────────── */
+
     .interesse-seksjon {
-      background: var(--grønn);
+      background:
+        var(--grønn);
     }
 
     .interesse-seksjon section {
-      max-width: 680px;
-      padding: 5rem 2rem;
-      text-align: center;
+      max-width:
+        680px;
+
+      padding:
+        5rem 2rem;
+
+      text-align:
+        center;
     }
 
     .interesse-boks {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(200,168,75,0.4);
-      border-radius: 10px;
-      padding: 3rem 2.5rem;
-      margin-top: 1.5rem;
+      background:
+        rgba(255,255,255,0.07);
+
+      border:
+        1px solid rgba(200,168,75,0.4);
+
+      border-radius:
+        10px;
+
+      padding:
+        3rem 2.5rem;
+
+      margin-top:
+        1.5rem;
     }
 
     .interesse-logo {
-      width: 95px;
-      height: 95px;
-      object-fit: contain;
-      margin-bottom: 1.5rem;
+      width:
+        95px;
+
+      height:
+        95px;
+
+      object-fit:
+        contain;
+
+      margin-bottom:
+        1.5rem;
     }
 
     .interesse-badge {
-      display: inline-block;
-      background: rgba(200,168,75,0.18);
-      color: var(--gull-lys);
-      border: 1px solid rgba(200,168,75,0.4);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
+      display:
+        inline-block;
+
+      background:
+        rgba(200,168,75,0.18);
+
+      color:
+        var(--gull-lys);
+
+      border:
+        1px solid rgba(200,168,75,0.4);
+
+      font-size:
+        0.75rem;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        0.12em;
+
+      text-transform:
+        uppercase;
+
+      padding:
+        0.4rem 1rem;
+
+      border-radius:
+        20px;
+
+      margin-bottom:
+        1.5rem;
     }
 
     .interesse-knapp {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 1rem 2.5rem;
-      background: var(--gull);
-      color: var(--grønn);
-      font-family: 'Source Serif 4', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background 0.2s, transform 0.15s;
+      display:
+        inline-block;
+
+      margin-top:
+        2rem;
+
+      padding:
+        1rem 2.5rem;
+
+      background:
+        var(--gull);
+
+      color:
+        var(--grønn);
+
+      font-size:
+        1rem;
+
+      font-weight:
+        600;
+
+      text-decoration:
+        none;
+
+      border-radius:
+        6px;
+
+      transition:
+        background 0.2s,
+        transform 0.15s;
     }
 
     .interesse-knapp:hover {
-      background: var(--gull-lys);
-      transform: translateY(-1px);
+      background:
+        var(--gull-lys);
+
+      transform:
+        translateY(-1px);
     }
 
     .interesse-liste {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
+      margin-top:
+        1.5rem;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        0.6rem;
     }
 
     .interesse-punkt {
-      color: rgba(255,255,255,0.7);
-      font-size: 0.9rem;
+      color:
+        rgba(255,255,255,0.7);
+
+      font-size:
+        0.9rem;
     }
 
-    /* ── FOOTER ── */
+
+    /* ─────────────────────────────
+       FOOTER
+    ───────────────────────────── */
+
     footer {
-      background: var(--tekst);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 3rem 2rem;
-      font-size: 0.85rem;
+      background:
+        var(--tekst);
+
+      color:
+        rgba(255,255,255,0.5);
+
+      text-align:
+        center;
+
+      padding:
+        3rem 2rem;
+
+      font-size:
+        0.85rem;
     }
 
     footer strong {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--gull-lys);
-      font-weight: 400;
-      font-style: italic;
-      margin-bottom: 0.8rem;
+      display:
+        block;
+
+      font-family:
+        'Playfair Display', serif;
+
+      font-size:
+        1.4rem;
+
+      color:
+        var(--gull-lys);
+
+      font-weight:
+        400;
+
+      font-style:
+        italic;
+
+      margin-bottom:
+        0.8rem;
     }
 
-    /* ── DIVIDER ── */
     .ornament {
-      text-align: center;
-      color: var(--gull);
-      font-size: 1.2rem;
-      letter-spacing: 0.5em;
-      margin: 0.5rem 0;
-      opacity: 0.5;
+      text-align:
+        center;
+
+      color:
+        var(--gull);
+
+      font-size:
+        1.2rem;
+
+      letter-spacing:
+        0.5em;
+
+      margin:
+        0.5rem 0;
+
+      opacity:
+        0.5;
     }
 
-    /* ── MOBIL ── */
+
+    /* ─────────────────────────────
+       ANIMASJONER
+    ───────────────────────────── */
+
+    @keyframes fadeUp {
+
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    @keyframes scrollPulse {
+
+      0%, 100% {
+        opacity: 0.3;
+        transform: scaleY(1);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: scaleY(1.2);
+      }
+
+    }
+
+
+    /* ─────────────────────────────
+       RESPONSIVITET
+    ───────────────────────────── */
+
+    @media (max-width: 680px) {
+
+      .om-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .praktisk-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kart-wrapper iframe {
+        height: 380px;
+      }
+
+    }
+
     @media (max-width: 600px) {
+
+      body > nav {
+        padding: 1rem 1.25rem;
+      }
 
       .nav-lenker {
         display: none;
+      }
+
+      .nav-logo {
+        font-size: 1rem;
       }
 
       .hero {
@@ -731,46 +1417,84 @@
       .hero-meta-label {
         font-size: 0.68rem;
       }
+
+      .historie-linje {
+        margin-left: 0.5rem;
+        padding-left: 2rem;
+      }
+
+      .historie-punkt::before {
+        left: -2.35rem;
+      }
+
     }
+
   </style>
+
 </head>
 
 
 <body>
 
-  <!-- NAV -->
+
+  <!-- ─────────────────────────────
+       NAVIGASJON
+  ───────────────────────────── -->
+
   <nav id="nav">
 
-    <a href="#" class="nav-logo">
+    <a
+      href="#"
+      class="nav-logo"
+    >
       Siderløpet
     </a>
+
 
     <ul class="nav-lenker">
 
       <li>
-        <a href="#om">Om løpet</a>
+        <a href="#om">
+          Om løpet
+        </a>
       </li>
 
       <li>
-        <a href="#historie">Historien</a>
+        <a href="#historie">
+          Historien
+        </a>
       </li>
 
       <li>
-        <a href="#2027">2027</a>
+        <a href="#2027">
+          2027
+        </a>
       </li>
 
       <li>
-        <a href="#rute">2026-ruten</a>
+        <a href="#rute">
+          2026-ruten
+        </a>
       </li>
 
       <li>
-        <a href="#kart">Kart</a>
+        <a href="#kart">
+          Kart
+        </a>
       </li>
 
       <li>
-        <a href="#interesse" style="color:var(--gull-lys);font-weight:600;">
+
+        <a
+          href="#interesse"
+          style="
+            color:var(--gull-lys);
+            font-weight:600;
+          "
+        >
           Meld interesse
         </a>
+
       </li>
 
     </ul>
@@ -778,27 +1502,36 @@
   </nav>
 
 
-  <!-- HERO -->
+
+  <!-- ─────────────────────────────
+       HERO
+  ───────────────────────────── -->
+
   <div class="hero">
+
 
     <img
       src="SIDERLOPET.png"
-      alt="Siderløpet"
+      alt="Siderløpet i Hardanger"
       class="hero-logo"
     >
+
 
     <p class="hero-eyebrow">
       Vestsiden av Sørfjorden · Hardanger
     </p>
 
+
     <h1>
       Sider<em>løpet</em>
     </h1>
+
 
     <p class="hero-sub">
       Neste Siderløp arrangeres sommeren 2027.
       Dato kommer – meld din interesse allerede nå.
     </p>
+
 
     <a
       href="https://docs.google.com/forms/d/e/1FAIpQLSdEOGYkG8YWlUs1cP-Z4n0kWMohhGhxLfz_Q3xzFZrexGqoPA/viewform?usp=publish-editor"
@@ -811,6 +1544,7 @@
 
 
     <div class="hero-meta">
+
 
       <div class="hero-meta-item">
 
@@ -856,6 +1590,7 @@
 
       </div>
 
+
     </div>
 
 
@@ -863,38 +1598,55 @@
       Scroll
     </div>
 
+
   </div>
 
 
-  <!-- OM LØPET -->
+
+  <!-- ─────────────────────────────
+       OM LØPET
+  ───────────────────────────── -->
+
   <div id="om">
 
     <section>
 
+
       <div class="om-grid">
 
+
         <div>
+
 
           <p class="section-label">
             Om arrangementet
           </p>
 
+
           <h2>
-            Et løp med <em>pause for smak</em>
+            Et løp med
+            <em>pause for smak</em>
           </h2>
 
+
           <p>
-            Siderløpet er et uformelt løp langs vestsiden av
-            Sørfjorden i Hardanger. Underveis går turen mellom
-            lokale sidergårder, med mulighet til å smake på
-            lokalprodusert sider underveis.
+            Siderløpet er et løp i Hardanger der løping,
+            lokal sider og gode opplevelser går hånd i hånd.
           </p>
+
+
+          <p>
+            Underveis går turen innom lokale siderprodusenter,
+            hvor deltakerne får oppleve sidertradisjonen,
+            kulturlandskapet og Hardanger på nært hold.
+          </p>
+
 
           <p>
             Første Siderløp ble gjennomført privat i august 2026
-            for å teste konseptet i praksis. Løypen, logistikk,
-            siderstopp og opplevelsen som helhet ble satt på prøve.
+            for å teste konseptet i praksis.
           </p>
+
 
           <p>
             Neste års arrangement er fortsatt under utvikling.
@@ -902,10 +1654,13 @@
             bli annerledes i 2027.
           </p>
 
+
         </div>
 
 
+
         <div class="om-tall">
+
 
           <div class="om-tall-item">
 
@@ -945,39 +1700,55 @@
 
           </div>
 
+
         </div>
 
+
       </div>
+
 
     </section>
 
   </div>
 
 
-  <!-- HISTORIEN OM SIDERLØPET -->
+
+  <!-- ─────────────────────────────
+       HISTORIEN
+  ───────────────────────────── -->
+
   <div
     class="historie-seksjon"
     id="historie"
   >
 
+
     <section>
 
+
       <div class="historie-intro">
+
 
         <p class="section-label">
           Historien om Siderløpet
         </p>
 
+
         <h2>
-          Fra Médoc til <em>Hardanger</em>
+          Fra Médoc til
+          <em>Hardanger</em>
         </h2>
+
 
         <p>
           Siderløpet startet egentlig ikke i Hardanger.
-          Det startet med en idé vi fikk med oss hjem fra Frankrike.
+          Det startet med en idé vi fikk med oss hjem
+          fra Frankrike.
         </p>
 
+
       </div>
+
 
 
       <div class="historie-linje">
@@ -987,13 +1758,16 @@
 
         <div class="historie-punkt">
 
+
           <div class="historie-aar">
             2023
           </div>
 
+
           <div class="historie-tittel">
             Ideen begynner
           </div>
+
 
           <p class="historie-tekst">
             Vi meldte oss på Marathon du Médoc i Frankrike –
@@ -1001,77 +1775,99 @@
             opplevelser langs veien.
           </p>
 
+
           <p class="historie-tekst">
-            I forkant ble det mer målrettet løpetrening i Bergen,
-            gjerne med en rødvinspause eller to underveis.
+            I forkant ble det mer målrettet løpetrening
+            rundt omkring i Bergen, gjerne med en
+            rødvinspause eller to underveis.
           </p>
 
+
         </div>
+
 
 
         <!-- 2024 -->
 
         <div class="historie-punkt">
 
+
           <div class="historie-aar">
             2024
           </div>
+
 
           <div class="historie-tittel">
             Vi tar ideen med hjem
           </div>
 
+
           <p class="historie-tekst">
-            Vi deltok på Marathon du Médoc og fikk oppleve
-            konseptet på ordentlig.
+            I 2024 deltok vi på Marathon du Médoc og fikk
+            oppleve konseptet på ordentlig.
           </p>
+
 
           <p class="historie-tekst">
             Allerede da bestemte vi oss for at noe lignende
-            måtte kunne gjøres hjemme i Norge – med vår egen
-            natur, våre egne gårder og vår stolte sidertradisjon.
+            måtte kunne gjøres hjemme i Norge og på Vestlandet –
+            med vår egen natur, våre egne gårder og vår stolte
+            sidertradisjon.
           </p>
+
 
         </div>
 
 
-        <!-- 2024-2025 -->
+
+        <!-- 2024–2025 -->
 
         <div class="historie-punkt">
+
 
           <div class="historie-aar">
             2024–2025
           </div>
 
+
           <div class="historie-tittel">
             Siderløpet blir til
           </div>
 
+
           <p class="historie-tekst">
-            Domenet <strong>siderløpet.no</strong> ble kjøpt,
-            og ideen begynte gradvis å bli til et konkret prosjekt.
+            Domenet
+            <strong>siderløpet.no</strong>
+            ble kjøpt, og ideen begynte gradvis å bli
+            til et konkret prosjekt.
           </p>
+
 
           <p class="historie-tekst">
             Vi planla løype, siderstopp, logistikk og hvordan
             vi kunne skape en dag som kombinerer løping,
-            sider og Hardanger.
+            lokal sider og Hardanger.
           </p>
 
+
         </div>
+
 
 
         <!-- 2026 -->
 
         <div class="historie-punkt">
 
+
           <div class="historie-aar">
             2026
           </div>
 
+
           <div class="historie-tittel">
             Endelig fikk vi det til
           </div>
+
 
           <p class="historie-tekst">
             I august 2026 gjennomførte vi endelig det første
@@ -1079,40 +1875,55 @@
             om ideen faktisk fungerte i praksis.
           </p>
 
+
           <p class="historie-tekst">
-            Stort engasjement fra de lokale siderprodusentene,
-            nydelig natur, fantastisk sider og en veldig gøy dag.
+            Vi møtte stort engasjement fra de lokale
+            siderprodusentene, løp gjennom nydelig natur,
+            smakte fantastisk sider og hadde en veldig gøy dag.
           </p>
+
 
           <div class="historie-punchline">
             Dette er liv laga.
           </div>
+
 
         </div>
 
 
       </div>
 
+
     </section>
+
 
   </div>
 
 
-  <!-- 2027 TEASER -->
+
+  <!-- ─────────────────────────────
+       2027
+  ───────────────────────────── -->
+
   <div
     class="teaser-seksjon"
     id="2027"
   >
 
+
     <section>
+
 
       <p class="section-label">
         Siderløpet 2027
       </p>
 
+
       <h2>
-        Neste gang blir vi <em>flere</em>
+        Neste gang blir vi
+        <em>flere</em>
       </h2>
+
 
       <div class="teaser-dato">
 
@@ -1124,72 +1935,93 @@
 
       </div>
 
-      <p>
-        Første Siderløp ble gjennomført som en privat test,
-        og erfaringene bekreftet at dette er et konsept vi
-        har lyst til å bygge videre på.
-      </p>
 
       <p>
-        I 2027 er ambisjonen å invitere langt flere deltakere.
-        Samtidig bruker vi erfaringene fra årets testløp til
-        å videreutvikle arrangementet.
+        Første Siderløp ble gjennomført som en privat test,
+        og erfaringene bekreftet at dette er et konsept
+        vi har lyst til å bygge videre på.
       </p>
+
+
+      <p>
+        I 2027 er ambisjonen å invitere langt flere deltakere
+        og videreutvikle arrangementet basert på erfaringene
+        fra første gjennomføring.
+      </p>
+
 
       <p>
         Ruten, siderstoppene og det øvrige opplegget for 2027
-        er ikke endelig bestemt ennå. Det betyr også at årets
-        løype ikke nødvendigvis blir den samme neste år.
+        er ikke endelig bestemt. Det betyr at både løype,
+        produsenter, antall stopp og rekkefølge kan bli
+        annerledes enn i 2026.
       </p>
 
+
       <p class="teaser-highlight">
-        Én fjord. Mange muligheter. En hel del sider.
+        Hardanger. Løping. Lokal sider.
+        Og en hel del gode opplevelser.
       </p>
+
 
       <p>
         Og kanskje har vi noen spennende nyheter på lur.
         Mer informasjon kommer fortløpende.
       </p>
 
+
     </section>
+
 
   </div>
 
 
-  <!-- RUTEN FRA 2026 -->
+
+  <!-- ─────────────────────────────
+       2026-RUTEN
+  ───────────────────────────── -->
+
   <div
     class="rute-bg"
     id="rute"
   >
 
+
     <section class="section-wide">
+
 
       <p class="section-label">
         Testløpet 2026
       </p>
 
+
       <h2>
-        Slik var <em>2026-ruten</em>
+        Slik var
+        <em>2026-ruten</em>
       </h2>
+
 
       <p>
         Her kan du se ruten og siderstoppene som ble brukt
         under den private testgjennomføringen i august 2026.
       </p>
 
+
       <div class="rute-info">
-        ⚠️ Rute og siderstopp for 2027 er ikke bestemt ennå,
-        og kan bli annerledes.
+        Rute, produsenter og siderstopp for 2027 er ikke
+        bestemt ennå og kan bli annerledes.
       </div>
 
 
+
       <div class="stopp-liste">
+
 
         <div class="stopp-kort">
 
           <div
             class="stopp-num"
-            style="font-size:0.85rem"
+            style="font-size:0.85rem;"
           >
             Start
           </div>
@@ -1202,9 +2034,8 @@
             Startpunkt · Aga
           </div>
 
-          <div class="stopp-moh"></div>
-
         </div>
+
 
 
         <div class="stopp-kort">
@@ -1228,6 +2059,7 @@
         </div>
 
 
+
         <div class="stopp-kort">
 
           <div class="stopp-num">
@@ -1247,6 +2079,7 @@
           </div>
 
         </div>
+
 
 
         <div class="stopp-kort">
@@ -1270,6 +2103,7 @@
         </div>
 
 
+
         <div class="stopp-kort">
 
           <div class="stopp-num">
@@ -1289,6 +2123,7 @@
           </div>
 
         </div>
+
 
 
         <div class="stopp-kort">
@@ -1312,11 +2147,12 @@
         </div>
 
 
+
         <div class="stopp-kort">
 
           <div
             class="stopp-num"
-            style="font-size:0.85rem"
+            style="font-size:0.85rem;"
           >
             Mål
           </div>
@@ -1329,16 +2165,17 @@
             Endepunkt · Nå
           </div>
 
-          <div class="stopp-moh"></div>
-
         </div>
 
+
       </div>
+
 
 
       <a
         href="siderlopet_hardanger.gpx"
         download
+
         style="
           display:inline-flex;
           align-items:center;
@@ -1354,63 +2191,90 @@
           text-decoration:none;
           transition:background 0.2s;
         "
-        onmouseover="this.style.background='#f5f0e8'"
-        onmouseout="this.style.background='#fff'"
+
+        onmouseover="
+          this.style.background='#f5f0e8'
+        "
+
+        onmouseout="
+          this.style.background='#fff'
+        "
       >
+
         📥 Last ned GPX-fil
 
         <span
-          style="font-size:0.8rem;color:#999;"
+          style="
+            font-size:0.8rem;
+            color:#999;
+          "
         >
           · Testløpet 2026
         </span>
 
       </a>
 
+
     </section>
+
 
   </div>
 
 
-  <!-- KART -->
+
+  <!-- ─────────────────────────────
+       KART
+  ───────────────────────────── -->
+
   <div
     class="kart-seksjon"
     id="kart"
   >
 
+
     <section class="section-wide">
+
 
       <p class="section-label">
         Testløpet 2026
       </p>
 
+
       <h2>
-        Se <em>2026-ruten</em> i kartet
+        Se
+        <em>2026-ruten</em>
+        i kartet
       </h2>
+
 
       <p>
         Kartet viser ruten og siderstoppene fra den private
-        testgjennomføringen i august 2026. Kartet er først og
-        fremst ment som et innblikk i hvordan det første løpet
-        ble lagt opp.
+        testgjennomføringen i august 2026.
       </p>
+
 
       <p>
-        <strong>
-          Merk: Rute og siderstopp for 2027 er ikke bestemt ennå
-          og kan bli endret.
-        </strong>
+        Kartet er ment som et innblikk i hvordan det første
+        Siderløpet ble lagt opp. Ruten for 2027 er ikke
+        bestemt ennå.
       </p>
 
+
+
       <div class="kart-wrapper">
+
 
         <iframe
           src="https://www.google.com/maps/d/embed?mid=1zhzgnZqvD78SGGgbU497R3C_JNHpIi4&ehbc=2E312F&noprof=1"
           allowfullscreen
-          loading="lazy">
+          loading="lazy"
+        >
         </iframe>
 
+
       </div>
+
+
 
       <a
         class="kart-lenke"
@@ -1418,29 +2282,42 @@
         target="_blank"
         rel="noopener"
       >
+
         🗺️ Åpne kartet i Google Maps →
+
       </a>
 
+
     </section>
+
 
   </div>
 
 
-  <!-- PRAKTISK -->
+
+  <!-- ─────────────────────────────
+       PRAKTISK
+  ───────────────────────────── -->
+
   <div
     class="stripe"
     id="praktisk"
   >
 
+
     <section>
+
 
       <p class="section-label">
         Praktisk informasjon
       </p>
 
+
       <h2>
-        Det du trenger <em>å vite</em>
+        Det vi vet
+        <em>så langt</em>
       </h2>
+
 
 
       <div class="praktisk-grid">
@@ -1449,19 +2326,20 @@
         <div class="praktisk-kort">
 
           <div class="praktisk-ikon">
-            ✅
+            📅
           </div>
 
           <div class="praktisk-tittel">
-            Første løp gjennomført
+            Når
           </div>
 
           <p class="praktisk-txt">
-            Første gjennomføring ble arrangert privat i august 2026
-            som en test av konsept, løype, logistikk og siderstopp.
+            Neste Siderløp planlegges sommeren 2027.
+            Endelig dato kommer senere.
           </p>
 
         </div>
+
 
 
         <div class="praktisk-kort">
@@ -1471,16 +2349,17 @@
           </div>
 
           <div class="praktisk-tittel">
-            Neste løp
+            Deltakere
           </div>
 
           <p class="praktisk-txt">
-            Neste Siderløp planlegges sommeren 2027.
-            Ambisjonen er å åpne for langt flere deltakere.
-            Dato kommer etter hvert.
+            Første gjennomføring var privat.
+            I 2027 er ambisjonen å åpne arrangementet
+            for langt flere deltakere.
           </p>
 
         </div>
+
 
 
         <div class="praktisk-kort">
@@ -1490,16 +2369,17 @@
           </div>
 
           <div class="praktisk-tittel">
-            Rute og siderstopp
+            Rute
           </div>
 
           <p class="praktisk-txt">
-            2026-testløpet hadde en rute på rundt 15 km med
-            fem siderstopp. Oppsettet for 2027 er fortsatt under
-            utvikling, og både rute og sidergårder kan bli endret.
+            Ruten for 2027 er ikke endelig bestemt.
+            Løypen fra 2026 brukes som erfaring og
+            inspirasjon i videre planlegging.
           </p>
 
         </div>
+
 
 
         <div class="praktisk-kort">
@@ -1509,17 +2389,17 @@
           </div>
 
           <div class="praktisk-tittel">
-            Lokale produsenter
+            Siderstopp
           </div>
 
           <p class="praktisk-txt">
-            De lokale siderprodusentene er en viktig del av
-            konseptet. Engasjementet fra produsentene under
-            årets testløp var fantastisk, og vi håper å bygge
-            videre på dette i 2027.
+            Lokale siderprodusenter er en sentral del
+            av Siderløpet. Hvilke gårder og hvor mange
+            stopp det blir i 2027 kommer senere.
           </p>
 
         </div>
+
 
 
         <div class="praktisk-kort">
@@ -1529,16 +2409,17 @@
           </div>
 
           <div class="praktisk-tittel">
-            Spennende ting på gang
+            Mer på gang
           </div>
 
           <p class="praktisk-txt">
-            Vi jobber med videreutviklingen av Siderløpet og
-            har kanskje noen spennende nyheter på lur.
+            Vi jobber med videreutviklingen av Siderløpet
+            og har kanskje noen spennende nyheter på lur.
             Mer informasjon kommer fortløpende.
           </p>
 
         </div>
+
 
 
         <div class="praktisk-kort">
@@ -1552,46 +2433,76 @@
           </div>
 
           <p class="praktisk-txt">
-            Spørsmål? Ta kontakt på
+
+            Spørsmål?
+
+            Ta kontakt på
+
             <a
               href="mailto:pdsenum@gmail.com"
-              style="color:var(--grønn)"
+              style="
+                color:var(--grønn);
+              "
             >
               pdsenum@gmail.com
             </a>
+
           </p>
 
         </div>
 
+
       </div>
 
+
     </section>
+
 
   </div>
 
 
-  <!-- INTERESSELISTE -->
+
+  <!-- ─────────────────────────────
+       INTERESSELISTE
+  ───────────────────────────── -->
+
   <div
     class="interesse-seksjon"
     id="interesse"
   >
 
+
     <section>
+
 
       <p
         class="section-label"
-        style="color:var(--gull-lys);"
+        style="
+          color:var(--gull-lys);
+        "
       >
-        Neste løp
+        Siderløpet 2027
       </p>
 
 
-      <h2 style="color:#fff;">
+      <h2
+        style="
+          color:#fff;
+        "
+      >
+
         Vær blant de
-        <em style="color:var(--gull-lys);">
+
+        <em
+          style="
+            color:var(--gull-lys);
+          "
+        >
           første
         </em>
+
       </h2>
+
 
 
       <div class="interesse-boks">
@@ -1605,7 +2516,7 @@
 
 
         <div class="interesse-badge">
-          Siderløpet 2027 · Sommeren 2027
+          Sommeren 2027 · Dato kommer
         </div>
 
 
@@ -1617,8 +2528,11 @@
             margin-bottom:1.2rem;
           "
         >
-          Første Siderløp er gjennomført – og vi er allerede
-          i gang med planleggingen av neste.
+
+          Første Siderløp er gjennomført –
+          og vi er allerede i gang med planleggingen
+          av neste.
+
         </p>
 
 
@@ -1629,40 +2543,35 @@
             line-height:1.7;
           "
         >
-          Neste år åpner vi for langt flere deltakere.
-          Datoen er ikke satt ennå, og det er heller ikke
-          bestemt nøyaktig hvordan ruten og siderstoppene
-          vil se ut.
+
+          Meld interesse nå, så blir du blant de første
+          som får vite mer når dato, rute, påmelding
+          og øvrige detaljer begynner å falle på plass.
+
         </p>
 
-
-        <p
-          style="
-            color:rgba(255,255,255,0.75);
-            font-size:1rem;
-            line-height:1.7;
-          "
-        >
-          Konseptet utvikles videre med utgangspunkt i
-          erfaringene fra årets testløp.
-        </p>
 
 
         <div class="interesse-liste">
 
+
           <span class="interesse-punkt">
-            🏃 Bli blant de første som får vite når datoen slippes
+            🏃 Få beskjed når datoen slippes
           </span>
+
 
           <span class="interesse-punkt">
             🍎 Følg utviklingen av Siderløpet 2027
           </span>
 
+
           <span class="interesse-punkt">
-            ✨ Få med deg spennende nyheter underveis
+            ✨ Få med deg nyheter underveis
           </span>
 
+
         </div>
+
 
 
         <a
@@ -1671,8 +2580,11 @@
           rel="noopener"
           class="interesse-knapp"
         >
+
           Meld interesse →
+
         </a>
+
 
 
         <p
@@ -1682,30 +2594,43 @@
             font-size:0.8rem;
           "
         >
+
           Det tar under ett minutt å melde interesse.
+
         </p>
+
 
       </div>
 
+
     </section>
+
 
   </div>
 
 
-  <!-- FOOTER -->
+
+  <!-- ─────────────────────────────
+       FOOTER
+  ───────────────────────────── -->
+
   <footer>
+
 
     <strong>
       Siderløpet i Hardanger
     </strong>
 
+
     <div class="ornament">
       · · ·
     </div>
 
+
     <p>
-      Vestsiden av Sørfjorden · Ullensvang · Sommeren 2027
+      Hardanger · Sommeren 2027
     </p>
+
 
     <p
       style="
@@ -1714,27 +2639,42 @@
         opacity:0.4;
       "
     >
-      Sider frå Hardanger – beskyttet geografisk betegnelse
+
+      Sider frå Hardanger –
+      beskyttet geografisk betegnelse
+
     </p>
+
 
   </footer>
 
 
+
+  <!-- ─────────────────────────────
+       JAVASCRIPT
+  ───────────────────────────── -->
+
   <script>
 
-    // Navbar scroll-effekt
-    const nav = document.getElementById('nav');
+    const nav =
+      document.getElementById('nav');
 
-    window.addEventListener('scroll', () => {
 
-      nav.classList.toggle(
-        'scrolled',
-        window.scrollY > 60
-      );
+    window.addEventListener(
+      'scroll',
+      () => {
 
-    });
+        nav.classList.toggle(
+          'scrolled',
+          window.scrollY > 60
+        );
+
+      }
+    );
 
   </script>
 
+
 </body>
+
 </html>
