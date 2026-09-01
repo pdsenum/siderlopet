@@ -180,7 +180,6 @@
       animation: scrollPulse 2s infinite;
     }
 
-
     /* ── SEKSJONER ── */
     section {
       max-width: 780px;
@@ -224,7 +223,6 @@
       margin-bottom: 0;
     }
 
-
     /* ── OM ── */
     .om-grid {
       display: grid;
@@ -264,7 +262,6 @@
       color: var(--tekst-lys);
       margin-top: 0.2rem;
     }
-
 
     /* ── BILDEGALLERI ── */
     .bilder-seksjon {
@@ -335,7 +332,6 @@
       }
     }
 
-
     /* ── 2027 TEASER ── */
     .teaser-seksjon {
       background: var(--grønn);
@@ -393,7 +389,6 @@
       margin-top: 2rem;
     }
 
-
     /* ── RUTE ── */
     .rute-bg {
       background: var(--grønn);
@@ -419,6 +414,16 @@
 
     .rute-bg p {
       color: rgba(255,255,255,0.7);
+    }
+
+    .rute-info {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1rem;
+      border: 1px solid rgba(200,168,75,0.35);
+      border-radius: 4px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.82rem;
     }
 
     .stopp-liste {
@@ -470,7 +475,6 @@
       letter-spacing: 0.05em;
     }
 
-
     /* ── KART ── */
     .kart-seksjon {
       background: var(--krem);
@@ -514,14 +518,12 @@
       }
     }
 
-
     /* ── STRIPE ── */
     .stripe {
       background: var(--krem-mørk);
       border-top: 1px solid #d8d0c0;
       border-bottom: 1px solid #d8d0c0;
     }
-
 
     /* ── PRAKTISK ── */
     .praktisk-grid {
@@ -561,7 +563,6 @@
       color: var(--tekst-lys);
       margin: 0;
     }
-
 
     /* ── INTERESSELISTE ── */
     .interesse-seksjon {
@@ -634,7 +635,6 @@
       font-size: 0.9rem;
     }
 
-
     /* ── FOOTER ── */
     footer {
       background: var(--tekst);
@@ -654,7 +654,6 @@
       margin-bottom: 0.8rem;
     }
 
-
     /* ── DIVIDER ── */
     .ornament {
       text-align: center;
@@ -664,7 +663,6 @@
       margin: 0.5rem 0;
       opacity: 0.5;
     }
-
 
     /* ── ANIMASJONER ── */
     @keyframes fadeUp {
@@ -690,7 +688,6 @@
         transform: scaleY(1.2);
       }
     }
-
 
     /* ── NAV ── */
     nav {
@@ -751,7 +748,6 @@
   </style>
 </head>
 
-
 <body>
 
   <!-- NAV -->
@@ -762,11 +758,26 @@
     </a>
 
     <ul class="nav-lenker">
-      <li><a href="#om">Om løpet</a></li>
-      <li><a href="#2027">2027</a></li>
-      <li><a href="#rute">Ruten</a></li>
-      <li><a href="#kart">Kart</a></li>
-      <li><a href="#praktisk">Praktisk</a></li>
+
+      <li>
+        <a href="#om">Om løpet</a>
+      </li>
+
+      <li>
+        <a href="#2027">2027</a>
+      </li>
+
+      <li>
+        <a href="#rute">2026-ruten</a>
+      </li>
+
+      <li>
+        <a href="#kart">Kart</a>
+      </li>
+
+      <li>
+        <a href="#praktisk">Praktisk</a>
+      </li>
 
       <li>
         <a
@@ -776,6 +787,7 @@
           Meld interesse
         </a>
       </li>
+
     </ul>
 
   </nav>
@@ -797,8 +809,6 @@
       Dato kommer – meld din interesse allerede nå.
     </p>
 
-
-    <!-- DIREKTE INTERESSEKNAPP -->
     <a
       href="https://docs.google.com/forms/d/e/1FAIpQLSdEOGYkG8YWlUs1cP-Z4n0kWMohhGhxLfz_Q3xzFZrexGqoPA/viewform?usp=publish-editor"
       target="_blank"
@@ -808,17 +818,18 @@
       Meld interesse →
     </a>
 
-
     <div class="hero-meta">
 
       <div class="hero-meta-item">
+
         <div class="hero-meta-num">
           ~15
         </div>
 
         <div class="hero-meta-label">
-          km
+          km · 2026
         </div>
+
       </div>
 
 
@@ -826,13 +837,15 @@
 
 
       <div class="hero-meta-item">
+
         <div class="hero-meta-num">
           5
         </div>
 
         <div class="hero-meta-label">
-          siderstopp
+          siderstopp · 2026
         </div>
+
       </div>
 
 
@@ -840,6 +853,7 @@
 
 
       <div class="hero-meta-item">
+
         <div class="hero-meta-num">
           2027
         </div>
@@ -847,6 +861,7 @@
         <div class="hero-meta-label">
           neste løp
         </div>
+
       </div>
 
     </div>
@@ -884,16 +899,15 @@
           </p>
 
           <p>
-            Ruten starter på Frukthagen Syreflot i Aga, går
-            oppover Rodabergvegen og ned til Fv 550, og følger
-            fjordkanten sørover til Alde Sider. Målgang er ved
-            Siderhuset Ola K.
+            Første Siderløp ble gjennomført privat i august 2026
+            for å teste konseptet i praksis. Løypen, logistikk,
+            siderstopp og opplevelsen som helhet ble satt på prøve.
           </p>
 
           <p>
-            Siderløpet handler ikke først og fremst om fart.
-            Det handler om Hardanger, sider, natur og gode
-            stunder sammen med andre.
+            Neste års arrangement er fortsatt under utvikling.
+            Både rute, siderstopp og øvrig opplegg kan derfor
+            bli annerledes i 2027.
           </p>
 
         </div>
@@ -908,7 +922,7 @@
             </div>
 
             <div class="om-tall-txt">
-              km total løypelengde
+              km i testløypen fra 2026
             </div>
 
           </div>
@@ -921,8 +935,7 @@
             </div>
 
             <div class="om-tall-txt">
-              meter høyeste punkt
-              (Rodabergvegen)
+              meter høyeste punkt i testløypen
             </div>
 
           </div>
@@ -935,8 +948,7 @@
             </div>
 
             <div class="om-tall-txt">
-              sidergårder – én smak
-              på hvert stopp
+              siderstopp i gjennomføringen i 2026
             </div>
 
           </div>
@@ -967,10 +979,15 @@
     </p>
 
     <p>
-      Den første gjennomføringen var privat og ble arrangert
-      for grunnleggerne av Siderløpet og inviterte deltakere.
-      Målet var å teste hele konseptet i praksis – løype,
-      logistikk, siderstopp og den totale opplevelsen.
+      Gjennomføringen var privat og hadde som mål å teste
+      konseptet, løypen, logistikken, siderstoppene og hele
+      opplevelsen fra start til mål.
+    </p>
+
+    <p>
+      Vi fikk stort engasjement fra de lokale siderprodusentene,
+      opplevde nydelig natur, smakte fantastisk sider og hadde
+      rett og slett en veldig gøy dag.
     </p>
 
     <p>
@@ -979,14 +996,8 @@
     </p>
 
     <p>
-      Vi opplevde stort engasjement fra de lokale
-      siderprodusentene, nydelig natur, fantastisk sider
-      og ikke minst en veldig gøy dag.
-    </p>
-
-    <p>
-      Testløpet ga oss verdifulle erfaringer og bekreftet
-      at dette er noe vi har lyst til å gjøre igjen.
+      Erfaringene fra testløpet bruker vi nå når vi planlegger
+      neste års arrangement.
     </p>
 
   </section>
@@ -1009,8 +1020,8 @@
 
         <p>
           En dag med løping, sider, fjord, gårder og godt selskap.
-          Første test er gjennomført – nå gleder vi oss til å invitere
-          langt flere med neste gang.
+          Første test er gjennomført – nå gleder vi oss til å
+          invitere langt flere med neste gang.
         </p>
 
       </div>
@@ -1028,28 +1039,28 @@
         <div class="bildekort">
           <img
             src="testlop-2.jpg"
-            alt="Deltakere under Siderløpet"
+            alt="Deltakere under Siderløpet 2026"
           >
         </div>
 
         <div class="bildekort">
           <img
             src="testlop-3.jpg"
-            alt="Sidergård langs Siderløpet"
+            alt="Sidergård under Siderløpet 2026"
           >
         </div>
 
         <div class="bildekort">
           <img
             src="testlop-4.jpg"
-            alt="Sider og smaksopplevelse underveis"
+            alt="Sider under Siderløpet 2026"
           >
         </div>
 
         <div class="bildekort">
           <img
             src="testlop-5.jpg"
-            alt="Natur og fjord langs løypen"
+            alt="Natur langs Siderløpet"
           >
         </div>
 
@@ -1094,18 +1105,25 @@
       </div>
 
       <p>
-        Første Siderløp ble gjennomført som en privat test.
-        Erfaringene var så gode at vi allerede er i gang med
-        planleggingen av neste års arrangement.
+        Første Siderløp ble gjennomført som en privat test,
+        og erfaringene bekreftet at dette er et konsept vi
+        har lyst til å bygge videre på.
       </p>
 
       <p>
-        I 2027 åpner vi for langt flere deltakere og tar med
-        oss det beste fra årets gjennomføring videre.
+        I 2027 er ambisjonen å invitere langt flere deltakere.
+        Samtidig bruker vi erfaringene fra årets testløp til
+        å videreutvikle arrangementet.
+      </p>
+
+      <p>
+        Ruten, siderstoppene og det øvrige opplegget for 2027
+        er ikke endelig bestemt ennå. Det betyr også at årets
+        løype ikke nødvendigvis blir den samme neste år.
       </p>
 
       <p class="teaser-highlight">
-        Én fjord. Fem siderstopp. En hel del sider.
+        Én fjord. Mange muligheter. En hel del sider.
       </p>
 
       <p>
@@ -1118,25 +1136,31 @@
   </div>
 
 
-  <!-- RUTEN -->
-  <div class="rute-bg" id="rute">
+  <!-- RUTEN FRA 2026 -->
+  <div
+    class="rute-bg"
+    id="rute"
+  >
 
     <section class="section-wide">
 
       <p class="section-label">
-        Løypen
+        Testløpet 2026
       </p>
 
       <h2>
-        Fra Aga til <em>Alde</em>
+        Slik var <em>2026-ruten</em>
       </h2>
 
       <p>
-        Ruten starter på Frukthagen Syreflot i Aga, går
-        oppover Rodabergvegen og ned til Fv 550, og følger
-        fjordkanten sørover til Fv 109 og Bleievegen.
-        Målgang er ved Siderhuset Ola K.
+        Her kan du se ruten og siderstoppene som ble brukt
+        under den private testgjennomføringen i august 2026.
       </p>
+
+      <div class="rute-info">
+        ⚠️ Rute og siderstopp for 2027 er ikke bestemt ennå,
+        og kan bli annerledes.
+      </div>
 
 
       <div class="stopp-liste">
@@ -1315,8 +1339,10 @@
       >
         📥 Last ned GPX-fil
 
-        <span style="font-size:0.8rem;color:#999;">
-          · Norgeskart, Garmin, Strava
+        <span
+          style="font-size:0.8rem;color:#999;"
+        >
+          · Testløpet 2026
         </span>
 
       </a>
@@ -1335,16 +1361,25 @@
     <section class="section-wide">
 
       <p class="section-label">
-        Interaktivt kart
+        Testløpet 2026
       </p>
 
       <h2>
-        Se løypen i <em>kartet</em>
+        Se <em>2026-ruten</em> i kartet
       </h2>
 
       <p>
-        Klikk på markørene for mer info om hver gård,
-        og utforsk ruten langs vestsiden av Sørfjorden.
+        Kartet viser ruten og siderstoppene fra den private
+        testgjennomføringen i august 2026. Kartet er først og
+        fremst ment som et innblikk i hvordan det første løpet
+        ble lagt opp.
+      </p>
+
+      <p>
+        <strong>
+          Merk: Rute og siderstopp for 2027 er ikke bestemt ennå
+          og kan bli endret.
+        </strong>
       </p>
 
       <div class="kart-wrapper">
@@ -1435,19 +1470,13 @@
           </div>
 
           <div class="praktisk-tittel">
-            Ruten
+            Rute og siderstopp
           </div>
 
           <p class="praktisk-txt">
-            Ruten går langs grus- og asfaltveier.
-            Vanlige løpesko holder.
-            <a
-              href="siderlopet_hardanger.gpx"
-              download
-              style="color:#2c4a2e;"
-            >
-              Last ned GPX-fil
-            </a>
+            2026-testløpet hadde en rute på rundt 15 km med
+            fem siderstopp. Oppsettet for 2027 er fortsatt under
+            utvikling, og både rute og sidergårder kan bli endret.
           </p>
 
         </div>
@@ -1460,13 +1489,14 @@
           </div>
 
           <div class="praktisk-tittel">
-            Sider og lokale produsenter
+            Lokale produsenter
           </div>
 
           <p class="praktisk-txt">
-            De lokale siderprodusentene er en viktig del
-            av konseptet, og engasjementet fra produsentene
-            under årets testløp var fantastisk.
+            De lokale siderprodusentene er en viktig del av
+            konseptet. Engasjementet fra produsentene under
+            årets testløp var fantastisk, og vi håper å bygge
+            videre på dette i 2027.
           </p>
 
         </div>
@@ -1537,7 +1567,8 @@
 
 
       <h2 style="color:#fff;">
-        Vær blant de <em style="color:var(--gull-lys);">
+        Vær blant de
+        <em style="color:var(--gull-lys);">
           første
         </em>
       </h2>
@@ -1579,8 +1610,9 @@
           "
         >
           Neste år åpner vi for langt flere deltakere.
-          Datoen er ikke satt ennå, men den kommer så snart
-          planene er klare.
+          Datoen er ikke satt ennå, og det er heller ikke
+          bestemt nøyaktig hvordan ruten og siderstoppene
+          vil se ut.
         </p>
 
 
@@ -1591,8 +1623,8 @@
             line-height:1.7;
           "
         >
-          Det kan også hende at vi har noen spennende
-          nyheter på lur.
+          Konseptet utvikles videre med utgangspunkt i
+          erfaringene fra årets testløp.
         </p>
 
 
